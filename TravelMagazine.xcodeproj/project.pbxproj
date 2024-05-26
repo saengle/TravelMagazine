@@ -13,6 +13,10 @@
 		8E6CB7BD2C010C9E004B4575 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 8E6CB7BC2C010C9E004B4575 /* Base */; };
 		8E6CB7BF2C010CA0004B4575 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E6CB7BE2C010CA0004B4575 /* Assets.xcassets */; };
 		8E6CB7C22C010CA0004B4575 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 8E6CB7C12C010CA0004B4575 /* Base */; };
+		8ED947DC2C010E1700AD84A3 /* MagazineInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED947DB2C010E1700AD84A3 /* MagazineInfo.swift */; };
+		8ED947DE2C010E4300AD84A3 /* MagazineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED947DD2C010E4300AD84A3 /* MagazineModel.swift */; };
+		8ED947E02C02105600AD84A3 /* MagazineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED947DF2C02105600AD84A3 /* MagazineViewController.swift */; };
+		8ED947E22C02158E00AD84A3 /* MagazineControllerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED947E12C02158E00AD84A3 /* MagazineControllerTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		8E6CB7BE2C010CA0004B4575 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E6CB7C12C010CA0004B4575 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8E6CB7C32C010CA0004B4575 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8ED947DB2C010E1700AD84A3 /* MagazineInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagazineInfo.swift; sourceTree = SOURCE_ROOT; };
+		8ED947DD2C010E4300AD84A3 /* MagazineModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagazineModel.swift; sourceTree = "<group>"; };
+		8ED947DF2C02105600AD84A3 /* MagazineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagazineViewController.swift; sourceTree = "<group>"; };
+		8ED947E12C02158E00AD84A3 /* MagazineControllerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagazineControllerTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +45,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8E0700FC2C031E5E0065766E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8ED947DD2C010E4300AD84A3 /* MagazineModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		8E6CB7A92C010C9E004B4575 = {
 			isa = PBXGroup;
 			children = (
@@ -59,10 +75,14 @@
 				8E6CB7B52C010C9E004B4575 /* AppDelegate.swift */,
 				8E6CB7B72C010C9E004B4575 /* SceneDelegate.swift */,
 				8E6CB7B92C010C9E004B4575 /* ViewController.swift */,
+				8ED947DB2C010E1700AD84A3 /* MagazineInfo.swift */,
 				8E6CB7BB2C010C9E004B4575 /* Main.storyboard */,
 				8E6CB7BE2C010CA0004B4575 /* Assets.xcassets */,
 				8E6CB7C02C010CA0004B4575 /* LaunchScreen.storyboard */,
 				8E6CB7C32C010CA0004B4575 /* Info.plist */,
+				8E0700FC2C031E5E0065766E /* Model */,
+				8ED947DF2C02105600AD84A3 /* MagazineViewController.swift */,
+				8ED947E12C02158E00AD84A3 /* MagazineControllerTableViewCell.swift */,
 			);
 			path = TravelMagazine;
 			sourceTree = "<group>";
@@ -139,8 +159,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E6CB7BA2C010C9E004B4575 /* ViewController.swift in Sources */,
+				8ED947E22C02158E00AD84A3 /* MagazineControllerTableViewCell.swift in Sources */,
+				8ED947DC2C010E1700AD84A3 /* MagazineInfo.swift in Sources */,
+				8ED947E02C02105600AD84A3 /* MagazineViewController.swift in Sources */,
 				8E6CB7B62C010C9E004B4575 /* AppDelegate.swift in Sources */,
 				8E6CB7B82C010C9E004B4575 /* SceneDelegate.swift in Sources */,
+				8ED947DE2C010E4300AD84A3 /* MagazineModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +324,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -307,9 +332,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.saengle.TravelMagazine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -328,6 +357,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -335,9 +365,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.saengle.TravelMagazine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
