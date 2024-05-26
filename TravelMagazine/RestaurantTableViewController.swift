@@ -13,17 +13,20 @@ class RestaurantTableViewController: UITableViewController {
     
     var restaurantList = RestaurantList()
     var likeList: Array<Bool> = []
+    var isSearching = false
+    var searchedList: [Restaurant] = []
     
     @IBOutlet var mainView: UIView!
     @IBOutlet var mainTitleLabel: UILabel!
     @IBOutlet var searchTextField: UITextField!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         makeLikeList()
         setUI()
         tableView.rowHeight = 167
+        searchTextFieldAddTarget(textField: searchTextField)
+        searchRestaurant(keyWord: "")
     }
     
 }
@@ -31,7 +34,7 @@ class RestaurantTableViewController: UITableViewController {
 extension RestaurantTableViewController {
     
     private func makeLikeList() {
-        for i in 0...restaurantList.restaurantArray.count{
+        for _ in 0...restaurantList.restaurantArray.count{
             likeList.append(false)
         }
     }
@@ -42,7 +45,7 @@ extension RestaurantTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return restaurantList.restaurantArray.count
+        return searchedList.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -51,7 +54,7 @@ extension RestaurantTableViewController {
             return UITableViewCell()
         }
         
-        let list = restaurantList.restaurantArray[indexPath.row]
+        let list = searchedList[indexPath.row]
         
         cell.titleLabel.text = list.name
         cell.titleLabel.numberOfLines = 2
@@ -69,15 +72,6 @@ extension RestaurantTableViewController {
                       .scaleFactor(UIScreen.main.scale),
                       .transition(.fade(1)),
                       .cacheOriginalImage])
-        {
-            result in
-            switch result {
-            case .success(let value):
-                print("Task done for: \(value.source.url?.absoluteString ?? "")")
-            case .failure(let error):
-                print("Job failed: \(error.localizedDescription)")
-            }
-        }
         
         cell.contentLabel.text = "\(list.price)원 \n\(list.category)"
         cell.contentLabel.numberOfLines = 2
@@ -97,6 +91,39 @@ extension RestaurantTableViewController {
         return cell
     }
     
+    private func searchTextFieldAddTarget(textField: UITextField) {
+        textField.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
+    }
+    
+    @objc func textFieldEditingChanged(textField: UITextField) {
+        guard let text = textField.text else {
+            return print("오류가 발생했습니다.")
+        }
+        if text == " " {
+            textField.text = ""
+        }
+        searchRestaurant(keyWord: text)
+    }
+    
+    private func searchRestaurant(keyWord: String) {
+        // clear searchedList before search
+        if keyWord != "" {
+            isSearching = true
+            self.searchedList.removeAll()
+        } else {
+            isSearching = false
+            self.searchedList.removeAll()
+            searchedList.append(contentsOf: restaurantList.restaurantArray)
+        }
+        // search using category
+        for element in restaurantList.restaurantArray{
+            if keyWord == element.category {
+                searchedList.append(element)
+            }
+        }
+        
+        self.tableView.reloadData()
+    }
     
     @objc private func heartButtonTapped(button: UIButton) {
         likeList[button.tag].toggle()
