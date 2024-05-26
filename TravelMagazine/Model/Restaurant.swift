@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Restaurant {    
+struct Restaurant: Hashable {
     let image: String
     let latitude: Double
     let longitude: Double
@@ -20,7 +20,7 @@ struct Restaurant {
     let type: Int
 }
 
-struct RestaurantList {
+struct RestaurantList: Hashable {
     let restaurantArray: [Restaurant] = [
         Restaurant(
             image: "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20170712_44%2F1499829806371zeBdS_JPEG%2FIMG_1167.jpg",

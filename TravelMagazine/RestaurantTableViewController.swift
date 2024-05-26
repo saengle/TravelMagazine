@@ -116,11 +116,19 @@ extension RestaurantTableViewController {
             searchedList.append(contentsOf: restaurantList.restaurantArray)
         }
         // search using category
-        for element in restaurantList.restaurantArray{
+        for element in restaurantList.restaurantArray {
             if keyWord == element.category {
                 searchedList.append(element)
             }
         }
+        
+        for element in restaurantList.restaurantArray {
+            if element.name.contains(keyWord) {
+                searchedList.append(element)
+            }
+        }
+        // dedupe
+        searchedList = Array(Set(searchedList))
         
         self.tableView.reloadData()
     }
