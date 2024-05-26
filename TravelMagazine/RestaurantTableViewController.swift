@@ -7,6 +7,8 @@
 
 import UIKit
 
+import Kingfisher
+
 class RestaurantTableViewController: UITableViewController {
 
     var restaurantList = RestaurantList()
@@ -41,7 +43,47 @@ extension RestaurantTableViewController {
             return UITableViewCell()
         }
         
+        let list = restaurantList.restaurantArray[indexPath.row]
         
+        cell.titleLabel.text = list.name
+        cell.titleLabel.numberOfLines = 2
+        // cell iamge
+        cell.posterImageView.contentMode = .scaleToFill
+        let url = URL(string: list.image)
+        let processor = DownsamplingImageProcessor(size: cell.posterImageView.bounds.size)
+        |> RoundCornerImageProcessor(cornerRadius: 15)
+        
+        cell.posterImageView.kf.indicatorType = .activity
+        cell.posterImageView.kf.setImage(
+            with: url,
+            placeholder: UIImage(named: "placeholderImage"),
+            options: [.processor(processor),
+                      .scaleFactor(UIScreen.main.scale),
+                      .transition(.fade(1)),
+                      .cacheOriginalImage])
+        {
+            result in
+            switch result {
+            case .success(let value):
+                print("Task done for: \(value.source.url?.absoluteString ?? "")")
+            case .failure(let error):
+                print("Job failed: \(error.localizedDescription)")
+            }
+        }
+        
+        cell.contentLabel.text = "\(list.price)원 \n\(list.category)"
+        cell.contentLabel.numberOfLines = 2
+        cell.contentLabel.textColor = .lightGray
+        
+        // heartButton bool check
+        if likeList[indexPath.row] {
+            cell.heartButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        } else {
+            cell.heartButton.setImage(UIImage(systemName: "heart"), for: .normal)
+        }
+        cell.heartButton.tag = indexPath.row
+        cell.heartButton.tintColor = .red
+        cell.heartButton.addTarget(self, action: #selector(heartButtonTapped), for: .touchUpInside)
         
         
         return cell
