@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ycB-Hl-DIQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3ax-tX-lTx">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -22,9 +22,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-10" y="-27"/>
+            <point key="canvasLocation" x="-865" y="-445"/>
         </scene>
-        <!--Magazine View Controller-->
+        <!--잡지-->
         <scene sceneID="bcb-A4-26P">
             <objects>
                 <tableViewController id="ycB-Hl-DIQ" customClass="MagazineViewController" customModule="TravelMagazine" customModuleProvider="target" sceneMemberID="viewController">
@@ -114,16 +114,73 @@
                             <outlet property="delegate" destination="ycB-Hl-DIQ" id="H8J-US-PMQ"/>
                         </connections>
                     </tableView>
+                    <tabBarItem key="tabBarItem" title="잡지" image="magazine" catalog="system" id="e9N-xa-4xx">
+                        <color key="badgeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="mainTitleLabel" destination="8Bj-yc-fDt" id="aUi-na-azE"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f3c-Ra-rTj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="737" y="-27"/>
+            <point key="canvasLocation" x="1679.2" y="-27.339901477832512"/>
+        </scene>
+        <!--식당-->
+        <scene sceneID="aVv-qn-L7b">
+            <objects>
+                <tableViewController id="hwk-y1-dVz" customClass="RestaurantTableViewController" customModule="TravelMagazine" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Q53-uu-zAo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ew4-OZ-qbD">
+                                <rect key="frame" x="0.0" y="50" width="375" height="44.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ew4-OZ-qbD" id="K1F-eC-aZF">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="hwk-y1-dVz" id="Msd-49-B46"/>
+                            <outlet property="delegate" destination="hwk-y1-dVz" id="tv2-sJ-pUG"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="식당" image="fork.knife" catalog="system" id="xIb-t3-CYh">
+                        <color key="badgeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4n3-pp-jby" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1679" y="686"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="YPl-MK-LRu">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="3ax-tX-lTx" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sPi-M5-Cqq">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" red="0.55294120309999995" green="0.31372550129999999" blue="0.77647060160000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="ycB-Hl-DIQ" kind="relationship" relationship="viewControllers" id="m4o-Sc-vCk"/>
+                        <segue destination="hwk-y1-dVz" kind="relationship" relationship="viewControllers" id="wzK-DV-emJ"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2MQ-wL-2NW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="506" y="326"/>
         </scene>
     </scenes>
+    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
+        <image name="fork.knife" catalog="system" width="94" height="128"/>
+        <image name="magazine" catalog="system" width="110" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
