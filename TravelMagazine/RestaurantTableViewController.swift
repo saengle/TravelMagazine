@@ -10,8 +10,9 @@ import UIKit
 import Kingfisher
 
 class RestaurantTableViewController: UITableViewController {
-
+    
     var restaurantList = RestaurantList()
+    var likeList: Array<Bool> = []
     
     @IBOutlet var mainView: UIView!
     @IBOutlet var mainTitleLabel: UILabel!
@@ -20,6 +21,7 @@ class RestaurantTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        makeLikeList()
         setUI()
         tableView.rowHeight = 167
     }
@@ -27,6 +29,12 @@ class RestaurantTableViewController: UITableViewController {
 }
 
 extension RestaurantTableViewController {
+    
+    private func makeLikeList() {
+        for i in 0...restaurantList.restaurantArray.count{
+            likeList.append(false)
+        }
+    }
     
     private func setUI() {
         mainTitleLabel.text = "식당 예약"
@@ -89,4 +97,9 @@ extension RestaurantTableViewController {
         return cell
     }
     
+    
+    @objc private func heartButtonTapped(button: UIButton) {
+        likeList[button.tag].toggle()
+        self.tableView.reloadRows(at: [IndexPath(row: button.tag, section: 0)], with: .automatic)
+    }
 }
