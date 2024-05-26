@@ -6,16 +6,18 @@
 //
 
 import UIKit
+import Kingfisher
 
 class MagazineViewController: UITableViewController {
-
+    
     
     let magazineInfo = MagazineInfo()
     
     @IBOutlet var mainTitleLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-//        tableView.rowHeight =
+        
+        setUI()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -27,22 +29,54 @@ class MagazineViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MagazineControllerTableViewCell", for: indexPath) as? MagazineControllerTableViewCell else { return UITableViewCell()}
         let row = indexPath.row
         
+        // Cell Image
+        cell.magazineImageView.contentMode = .scaleToFill
+        let url = URL(string: magazineInfo.magazine[row].photo_image)
+        // image sampling process
+        let processor = DownsamplingImageProcessor(size: cell.magazineImageView.bounds.size)
+        |> RoundCornerImageProcessor(cornerRadius: 20)
+        // 이미지 준비 될 때 까지 인디케이터 작동
+        cell.magazineImageView.kf.indicatorType = .activity
+        cell.magazineImageView.kf.setImage(
+            with: url,
+            placeholder: UIImage(named: "placeholderImage"),
+            options: [
+                .processor(processor),
+                .scaleFactor(UIScreen.main.scale),
+                .transition(.fade(1)),
+                .cacheOriginalImage
+            ])
+        {
+            result in
+            switch result {
+            case .success(let value):
+                print("Task done for: \(value.source.url?.absoluteString ?? "")")
+            case .failure(let error):
+                print("Job failed: \(error.localizedDescription)")
+            }
+        }
+        
+        // cell main title
         cell.titleLabel.text = magazineInfo.magazine[row].title
+        cell.titleLabel.numberOfLines = 2
+        cell.titleLabel.font = .boldSystemFont(ofSize: 20)
         
+        // cell subtitle
         cell.subtitleLabel.text = magazineInfo.magazine[row].subtitle
+        cell.subtitleLabel.numberOfLines = 1
+        cell.subtitleLabel.textColor = .lightGray
         
-//        cell.magazineImageView.image =
-//
-//        cell.dateLabel.text = 
-//        
+        // cell.dateLabel
+        cell.dateLabel.textColor = .lightGray
+        cell.dateLabel.font = .systemFont(ofSize: 9)
         return cell
     }
 }
 
 extension MagazineViewController {
     private func setUI() {
+        //        self.tableView.rowHeight =
         self.mainTitleLabel.text = "Travel"
-        
         
     }
     
