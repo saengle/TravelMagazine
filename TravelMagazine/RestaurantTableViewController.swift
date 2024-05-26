@@ -27,8 +27,8 @@ class RestaurantTableViewController: UITableViewController {
         tableView.rowHeight = 167
         searchTextFieldAddTarget(textField: searchTextField)
         searchRestaurant(keyWord: "")
+        hideKeyboardWhenTappedAround()
     }
-    
 }
 
 extension RestaurantTableViewController {
@@ -93,6 +93,12 @@ extension RestaurantTableViewController {
     
     private func searchTextFieldAddTarget(textField: UITextField) {
         textField.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
+        textField.addTarget(self, action: #selector(keyboardDismiss), for: .editingDidEnd)
+        textField.addTarget(self, action: #selector(keyboardDismiss), for: .editingDidEndOnExit)
+    }
+    
+    @objc func keyboardDismiss() {
+        view.endEditing(true)
     }
     
     @objc func textFieldEditingChanged(textField: UITextField) {
