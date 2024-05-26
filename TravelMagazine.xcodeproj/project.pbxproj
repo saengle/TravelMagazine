@@ -14,6 +14,7 @@
 		8E6CB7BD2C010C9E004B4575 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 8E6CB7BC2C010C9E004B4575 /* Base */; };
 		8E6CB7BF2C010CA0004B4575 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E6CB7BE2C010CA0004B4575 /* Assets.xcassets */; };
 		8E6CB7C22C010CA0004B4575 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 8E6CB7C12C010CA0004B4575 /* Base */; };
+		8EBE0D602C03500800D83E34 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBE0D5F2C03500800D83E34 /* Restaurant.swift */; };
 		8ED947DC2C010E1700AD84A3 /* MagazineInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED947DB2C010E1700AD84A3 /* MagazineInfo.swift */; };
 		8ED947DE2C010E4300AD84A3 /* MagazineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED947DD2C010E4300AD84A3 /* MagazineModel.swift */; };
 		8ED947E02C02105600AD84A3 /* MagazineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED947DF2C02105600AD84A3 /* MagazineViewController.swift */; };
@@ -29,7 +30,8 @@
 		8E6CB7BE2C010CA0004B4575 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E6CB7C12C010CA0004B4575 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8E6CB7C32C010CA0004B4575 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8ED947DB2C010E1700AD84A3 /* MagazineInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagazineInfo.swift; sourceTree = SOURCE_ROOT; };
+		8EBE0D5F2C03500800D83E34 /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		8ED947DB2C010E1700AD84A3 /* MagazineInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MagazineInfo.swift; path = TravelMagazine/DummyData/MagazineInfo.swift; sourceTree = SOURCE_ROOT; };
 		8ED947DD2C010E4300AD84A3 /* MagazineModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagazineModel.swift; sourceTree = "<group>"; };
 		8ED947DF2C02105600AD84A3 /* MagazineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagazineViewController.swift; sourceTree = "<group>"; };
 		8ED947E12C02158E00AD84A3 /* MagazineControllerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagazineControllerTableViewCell.swift; sourceTree = "<group>"; };
@@ -50,6 +52,7 @@
 		8E0700FC2C031E5E0065766E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8EBE0D5F2C03500800D83E34 /* Restaurant.swift */,
 				8ED947DD2C010E4300AD84A3 /* MagazineModel.swift */,
 			);
 			path = Model;
@@ -77,7 +80,7 @@
 				8E6CB7B52C010C9E004B4575 /* AppDelegate.swift */,
 				8E6CB7B72C010C9E004B4575 /* SceneDelegate.swift */,
 				8E6CB7B92C010C9E004B4575 /* ViewController.swift */,
-				8ED947DB2C010E1700AD84A3 /* MagazineInfo.swift */,
+				8EBE0D5E2C034F9D00D83E34 /* DummyData */,
 				8E6CB7BB2C010C9E004B4575 /* Main.storyboard */,
 				8E6CB7BE2C010CA0004B4575 /* Assets.xcassets */,
 				8E6CB7C02C010CA0004B4575 /* LaunchScreen.storyboard */,
@@ -87,6 +90,14 @@
 				8ED947E12C02158E00AD84A3 /* MagazineControllerTableViewCell.swift */,
 			);
 			path = TravelMagazine;
+			sourceTree = "<group>";
+		};
+		8EBE0D5E2C034F9D00D83E34 /* DummyData */ = {
+			isa = PBXGroup;
+			children = (
+				8ED947DB2C010E1700AD84A3 /* MagazineInfo.swift */,
+			);
+			path = DummyData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,6 +181,7 @@
 				8ED947E22C02158E00AD84A3 /* MagazineControllerTableViewCell.swift in Sources */,
 				8ED947DC2C010E1700AD84A3 /* MagazineInfo.swift in Sources */,
 				8ED947E02C02105600AD84A3 /* MagazineViewController.swift in Sources */,
+				8EBE0D602C03500800D83E34 /* Restaurant.swift in Sources */,
 				8E6CB7B62C010C9E004B4575 /* AppDelegate.swift in Sources */,
 				8E6CB7B82C010C9E004B4575 /* SceneDelegate.swift in Sources */,
 				8ED947DE2C010E4300AD84A3 /* MagazineModel.swift in Sources */,
