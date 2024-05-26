@@ -67,8 +67,20 @@ class MagazineViewController: UITableViewController {
         cell.subtitleLabel.textColor = .lightGray
         
         // cell.dateLabel
+        cell.dateLabel.textAlignment = .right
         cell.dateLabel.textColor = .lightGray
         cell.dateLabel.font = .systemFont(ofSize: 9)
+            // date format
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyMMdd"
+        if let date = formatter.date(from: magazineInfo.magazine[row].date) {
+            formatter.dateFormat = "yy년 MM월 dd일"
+            let convertedStr = formatter.string(from: date)
+            cell.dateLabel.text = convertedStr
+        } else {
+            print("failed formatting date")
+        }
+       
         return cell
     }
 }
@@ -79,7 +91,4 @@ extension MagazineViewController {
         self.mainTitleLabel.text = "Travel"
         
     }
-    
-    
-    
 }
