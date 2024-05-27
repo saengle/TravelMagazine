@@ -15,17 +15,17 @@ class RestauranctViewController: UIViewController {
     
 }
 
-extension RestauranctViewController: UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        <#code#>
-    }
-    
-}
+//extension RestauranctViewController: UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+////    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+////        <#code#>
+////    }
+////    
+////    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+////        <#code#>
+////    }
+////    
+////    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+////        <#code#>
+////    }
+//    
+//}
