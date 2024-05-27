@@ -27,4 +27,16 @@ extension UIViewController {
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
+    
+//    func alertAction() {
+//        //1. alert 생성
+//        let alert = UIAlertController(title: <#T##String?#>, message: <#T##String?#>, preferredStyle: <#T##UIAlertController.Style#>)
+//        //2. action 선언 필요시 handler 사용.
+//        let <#T##UIAlertAction#> = UIAlertAction(title: <#T##String?#>, style: <#T##UIAlertAction.Style#>)
+//        let <#T##UIAlertAction#> = UIAlertAction(title: <#T##String?#>, style: <#T##UIAlertAction.Style#>, handler: <#T##((UIAlertAction) -> Void)?##((UIAlertAction) -> Void)?##(UIAlertAction) -> Void#>)
+//        //3. alert에 action 등록
+//        alert.addAction(<#T##UIAlertAction#>)
+//        //4. 띄우기
+//        present(alert, animated: <#T##Bool#>)
+//    }
 }
