@@ -79,6 +79,7 @@ extension TravelViewController: UITableViewDelegate, UITableViewDataSource{
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "TravleTableViewCell", for: indexPath) as? TravleTableViewCell else { return UITableViewCell() }
             cell.configureCell(data: data)
+            cell.heartButton.tag = indexPath.row
             return cell
         }
     }

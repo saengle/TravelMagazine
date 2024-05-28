@@ -23,7 +23,7 @@ class TravleTableViewCell: UITableViewCell {
     @IBOutlet var stackLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        heartButton.addTarget(self, action: #selector(heartButtonClicked), for: .touchUpInside)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -62,7 +62,17 @@ class TravleTableViewCell: UITableViewCell {
                       .cacheOriginalImage])
         
         heartButton.tintColor = .white
+        
+        
     }
+    
+    @objc func heartButtonClicked(_: UIButton) {
+//        list[sender.tag].like.toggle()
+//        tableView.reloadData()
+//        tableView.reloadRows(at: [IndexPath(row: sender.tag, section: 0)], with: .automatic)
+    }
+        
+    
     
     private func paintStarPoint (point: Double) {
         starImageList.forEach{$0.image = UIImage(systemName: "star")}
@@ -103,3 +113,4 @@ class TravleTableViewCell: UITableViewCell {
         
     }
 }
+
