@@ -50,7 +50,7 @@ class RestaurantTableViewCell: UITableViewCell {
                       .transition(.fade(1)),
                       .cacheOriginalImage])
         
-        contentLabel.text = "\(data.price)원 \n\(data.category)"
+        contentLabel.text = data.contentDescription
         
         // heartButton bool check
         if heart {

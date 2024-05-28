@@ -97,15 +97,7 @@ class MagazineControllerTableViewCell: UITableViewCell {
         // cell subtitle
         subtitleLabel.text = data.subtitle
         
-        // date format
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyMMdd"
-        if let date = formatter.date(from: data.date) {
-            formatter.dateFormat = "yy년 MM월 dd일"
-            let convertedStr = formatter.string(from: date)
-            dateLabel.text = convertedStr
-        } else {
-            print("failed formatting date")
-        }
+        // Magazine model Computed Property
+        dateLabel.text = data.formattedDate
     }
 }

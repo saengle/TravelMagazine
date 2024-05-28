@@ -18,6 +18,8 @@ struct Restaurant: Hashable {
     let category: String
     let price: Int
     let type: Int
+    
+    var contentDescription: String { return  "\(price)원 \n\(category)"}
 }
 
 struct RestaurantList: Hashable {
