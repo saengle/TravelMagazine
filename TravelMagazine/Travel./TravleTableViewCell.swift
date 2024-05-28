@@ -44,7 +44,7 @@ class TravleTableViewCell: UITableViewCell {
         paintStarPoint(point: data.grade!)
         starImageList.forEach{$0.tintColor = .orange}
         
-        stackLabel.text = "(\(data.grade ?? 0.0)) 저장 \(data.save ?? 0)"
+        stackLabel.text = data.subTitleDescription
         stackLabel.textColor = .lightGray
         stackLabel.font = .systemFont(ofSize: 13)
         

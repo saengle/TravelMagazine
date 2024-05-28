@@ -14,6 +14,13 @@ struct Travel:  Hashable {
     let save: Int?
     let like: Bool?
     let ad: Bool
+    
+    var subTitleDescription: String {
+        if let grade, let save {
+            return "\(grade) 저장 \(save)"
+        } else { return ""}
+        
+    }
 }
 
 struct TravelInfo {
