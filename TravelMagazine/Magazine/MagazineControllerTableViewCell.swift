@@ -7,8 +7,10 @@
 
 import UIKit
 
-class MagazineControllerTableViewCell: UITableViewCell {
+import Kingfisher
 
+class MagazineControllerTableViewCell: UITableViewCell {
+    
     @IBOutlet var magazineImageView: UIImageView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var subtitleLabel: UILabel!
@@ -18,12 +20,13 @@ class MagazineControllerTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         setCellUI()
-        
+        layoutSubviews()
+        prepareForReuse()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
@@ -46,12 +49,64 @@ class MagazineControllerTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         magazineImageView.backgroundColor = .black
+        print(#function)
     }
     //
     override func layoutSubviews() {
         super.layoutSubviews()
+        print(#function)
         magazineImageView.backgroundColor = .black
     }
+ 
     
-   
+    func configureMagazineCell(_ data: Magazine) {
+        // Cell Image
+        magazineImageView.contentMode = .scaleToFill
+        let url = URL(string: data.photo_image)
+        // image sampling process
+        // 바운즈를 읽어오는 시기와 백그라운드 컬러를 칠하는 시기가 다르긴 할텐데 ... 언제지
+        let processor = DownsamplingImageProcessor(size: magazineImageView.bounds.size)
+        |> RoundCornerImageProcessor(cornerRadius: 20)
+        print(#function, "지금 막 바운즈 읽어왔다?")
+        magazineImageView.backgroundColor = .black
+        // 이미지 준비 될 때 까지 인디케이터 작동
+        //        cell.magazineImageView.backgroundColor = .black
+        magazineImageView.kf.indicatorType = .activity
+        magazineImageView.kf.setImage(
+            with: url,
+            placeholder: UIImage(named: "placeholderImage"),
+            options: [
+                .processor(processor),
+                .scaleFactor(UIScreen.main.scale),
+                .transition(.fade(1)),
+                .cacheOriginalImage
+            ])
+        //        프린트 지저분해서 재워둠
+        //        {
+        //            result in
+        //            switch result {
+        //            case .success(let value):
+        //                print("Task done for: \(value.source.url?.absoluteString ?? "")")
+        //            case .failure(let error):
+        //                print("Job failed: \(error.localizedDescription)")
+        //            }
+        //        }
+        
+        // cell main title
+        titleLabel.text = data.title
+        
+        // cell subtitle
+        subtitleLabel.text = data.subtitle
+        
+        // date format
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyMMdd"
+        if let date = formatter.date(from: data.date) {
+            formatter.dateFormat = "yy년 MM월 dd일"
+            let convertedStr = formatter.string(from: date)
+            dateLabel.text = convertedStr
+        } else {
+            print("failed formatting date")
+        }
+    }
 }
