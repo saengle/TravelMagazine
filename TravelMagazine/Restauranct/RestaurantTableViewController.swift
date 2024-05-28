@@ -7,13 +7,10 @@
 
 import UIKit
 
-import Kingfisher
-
 class RestaurantTableViewController: UITableViewController {
     
     var restaurantList = RestaurantList()
     var likeList: Array<Bool> = []
-    var isSearching = false
     var searchedList: [Restaurant] = []
     
     @IBOutlet var mainView: UIView!
@@ -42,6 +39,7 @@ extension RestaurantTableViewController {
     private func setUI() {
         mainTitleLabel.text = "식당 예약"
         mainTitleLabel.font = .boldSystemFont(ofSize: 20)
+        searchTextField.backgroundColor = .systemGray6
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -53,40 +51,11 @@ extension RestaurantTableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantTableViewCell", for: indexPath) as? RestaurantTableViewCell else {
             return UITableViewCell()
         }
-        
-        let list = searchedList[indexPath.row]
-        
-        cell.titleLabel.text = list.name
-        cell.titleLabel.numberOfLines = 2
-        // cell iamge
-        cell.posterImageView.contentMode = .scaleToFill
-        let url = URL(string: list.image)
-        let processor = DownsamplingImageProcessor(size: cell.posterImageView.bounds.size)
-        |> RoundCornerImageProcessor(cornerRadius: 15)
-        
-        cell.posterImageView.kf.indicatorType = .activity
-        cell.posterImageView.kf.setImage(
-            with: url,
-            placeholder: UIImage(named: "placeholderImage"),
-            options: [.processor(processor),
-                      .scaleFactor(UIScreen.main.scale),
-                      .transition(.fade(1)),
-                      .cacheOriginalImage])
-        
-        cell.contentLabel.text = "\(list.price)원 \n\(list.category)"
-        cell.contentLabel.numberOfLines = 2
-        cell.contentLabel.textColor = .lightGray
-        
-        // heartButton bool check
-        if likeList[indexPath.row] {
-            cell.heartButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-        } else {
-            cell.heartButton.setImage(UIImage(systemName: "heart"), for: .normal)
-        }
+        // Whole cell's heartButton addTarget & add tag
         cell.heartButton.tag = indexPath.row
-        cell.heartButton.tintColor = .red
         cell.heartButton.addTarget(self, action: #selector(heartButtonTapped), for: .touchUpInside)
-        
+        // configure Cell
+        cell.configureRestauranctCell(searchedList[indexPath.row], heart: likeList[indexPath.row])
         
         return cell
     }
@@ -114,27 +83,13 @@ extension RestaurantTableViewController {
     private func searchRestaurant(keyWord: String) {
         // clear searchedList before search
         if keyWord != "" {
-            isSearching = true
             self.searchedList.removeAll()
         } else {
-            isSearching = false
             self.searchedList.removeAll()
             searchedList.append(contentsOf: restaurantList.restaurantArray)
         }
-        // search using category
-        for element in restaurantList.restaurantArray {
-            if keyWord == element.category {
-                searchedList.append(element)
-            }
-        }
         
-        for element in restaurantList.restaurantArray {
-            if element.name.contains(keyWord) {
-                searchedList.append(element)
-            }
-        }
-        // dedupe
-        searchedList = Array(Set(searchedList))
+        searchedList.append(contentsOf: restaurantList.restaurantArray.filter{$0.category.contains(keyWord) || $0.name.contains(keyWord)})
         
         self.tableView.reloadData()
     }

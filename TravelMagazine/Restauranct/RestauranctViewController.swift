@@ -9,8 +9,11 @@ import UIKit
 
 class RestauranctViewController: UIViewController {
     
+    @IBOutlet var restauranctTitleLabel: UILabel!
+    @IBOutlet var restauranctTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+//        view.relo
     }
     
 }

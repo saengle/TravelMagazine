@@ -57,7 +57,6 @@ class MagazineControllerTableViewCell: UITableViewCell {
         print(#function)
         magazineImageView.backgroundColor = .black
     }
- 
     
     func configureMagazineCell(_ data: Magazine) {
         // Cell Image

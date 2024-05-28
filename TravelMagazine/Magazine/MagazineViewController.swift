@@ -27,7 +27,7 @@ class MagazineViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MagazineControllerTableViewCell", for: indexPath) as? MagazineControllerTableViewCell else { return UITableViewCell()}
         
         cell.configureMagazineCell(MagazineInfo.magazine[indexPath.row])
-       
+        
         return cell
     }
 }
@@ -35,7 +35,7 @@ class MagazineViewController: UITableViewController {
 extension MagazineViewController {
     private func setUI() {
         // 임시로 설정할 높이
-//        self.tableView.estimatedRowHeight =
+        //        self.tableView.estimatedRowHeight =
         // automaticDimension: cell의 크기가 내부 요인의 크기에 따라 변화함.
         self.tableView.rowHeight = UITableView.automaticDimension
         self.mainTitleLabel.text = "Travel"
