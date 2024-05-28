@@ -36,6 +36,7 @@ class MagazineViewController: UITableViewController {
         let processor = DownsamplingImageProcessor(size: cell.magazineImageView.bounds.size)
         |> RoundCornerImageProcessor(cornerRadius: 20)
         // 이미지 준비 될 때 까지 인디케이터 작동
+//        cell.magazineImageView.backgroundColor = .black
         cell.magazineImageView.kf.indicatorType = .activity
         cell.magazineImageView.kf.setImage(
             with: url,
@@ -58,18 +59,11 @@ class MagazineViewController: UITableViewController {
         
         // cell main title
         cell.titleLabel.text = magazineInfo.magazine[row].title
-        cell.titleLabel.numberOfLines = 2
-        cell.titleLabel.font = .boldSystemFont(ofSize: 20)
+        
         
         // cell subtitle
         cell.subtitleLabel.text = magazineInfo.magazine[row].subtitle
-        cell.subtitleLabel.numberOfLines = 1
-        cell.subtitleLabel.textColor = .lightGray
-        
-        // cell.dateLabel
-        cell.dateLabel.textAlignment = .right
-        cell.dateLabel.textColor = .lightGray
-        cell.dateLabel.font = .systemFont(ofSize: 9)
+    
             // date format
         let formatter = DateFormatter()
         formatter.dateFormat = "yyMMdd"
@@ -87,7 +81,9 @@ class MagazineViewController: UITableViewController {
 
 extension MagazineViewController {
     private func setUI() {
-        //        self.tableView.rowHeight =
+        // 임시로 설정할 높이
+//        self.tableView.estimatedRowHeight =
+        self.tableView.rowHeight = UITableView.automaticDimension
         self.mainTitleLabel.text = "Travel"
         
     }

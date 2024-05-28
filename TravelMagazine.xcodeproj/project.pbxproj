@@ -107,7 +107,7 @@
 				8E0700FC2C031E5E0065766E /* Model */,
 				8ECD543E2C048E5500724455 /* Magazine */,
 				8ECD543F2C048F0600724455 /* Restauranct */,
-				8ECD54442C048F3600724455 /* New Group */,
+				8ECD54442C048F3600724455 /* Travel. */,
 			);
 			path = TravelMagazine;
 			sourceTree = "<group>";
@@ -139,7 +139,7 @@
 			path = Restauranct;
 			sourceTree = "<group>";
 		};
-		8ECD54442C048F3600724455 /* New Group */ = {
+		8ECD54442C048F3600724455 /* Travel. */ = {
 			isa = PBXGroup;
 			children = (
 				8ECD543C2C048BDB00724455 /* TravelViewController.swift */,
@@ -148,7 +148,7 @@
 				8E5D28BC2C04C37A005231A0 /* TravleTableViewCell.swift */,
 				8E5D28BD2C04C37A005231A0 /* TravleTableViewCell.xib */,
 			);
-			path = "New Group";
+			path = Travel.;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
