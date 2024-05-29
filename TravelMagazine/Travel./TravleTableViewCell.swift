@@ -73,7 +73,9 @@ class TravleTableViewCell: UITableViewCell {
     private func paintStarPoint (point: Double) {
         starImageList.forEach{$0.image = UIImage(systemName: "star")}
         switch point {
-        case 0.5..<1.5:
+        case 0.5..<1.0:
+            starImageList[0].image = UIImage(systemName: "star.fill.left")
+        case 1.0..<1.5:
             starImageList[0].image = UIImage(systemName: "star.fill")
         case 1.5..<2:
             starImageList[0].image = UIImage(systemName: "star.fill")
@@ -102,8 +104,10 @@ class TravleTableViewCell: UITableViewCell {
         case 4.5..<5:
             starImageList.forEach{$0.image = UIImage(systemName: "star.fill")}
             starImageList[4].image = UIImage(systemName: "star.fill.left")
+        case 5:
+            starImageList.forEach{$0.image = UIImage(systemName: "star.fill")}
         default:
-            print("별 그리기중 오류 발생")
+            print("오류 발생")
         }
     }
 }
