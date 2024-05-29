@@ -13,4 +13,7 @@ class AdViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = false
     }
+    @IBAction func backButtonClicked(_ sender: UIButton) {
+        dismiss(animated: true)
+    }
 }

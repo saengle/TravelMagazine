@@ -46,7 +46,13 @@ extension TravelDetailViewController{
         starImageCollection.forEach{$0.tintColor = .orange}
         descriptionLabel.text = travel[0].description
         saveLabel.text = travel[0].subTitleDescription
-       
+        if let like = travel[0].like {
+            if like {
+                heartButton.image = UIImage(systemName: "heart.fill")
+            } else {
+                heartButton.image = UIImage(systemName: "heart")
+            }
+        }
     }
     
     @objc func heartButtonClicked() {
