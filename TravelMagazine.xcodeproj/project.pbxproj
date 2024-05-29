@@ -10,6 +10,8 @@
 		8E0700FF2C0336C50065766E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 8E0700FE2C0336C50065766E /* Kingfisher */; };
 		8E5D28BE2C04C37A005231A0 /* TravleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5D28BC2C04C37A005231A0 /* TravleTableViewCell.swift */; };
 		8E5D28BF2C04C37A005231A0 /* TravleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E5D28BD2C04C37A005231A0 /* TravleTableViewCell.xib */; };
+		8E5D29022C07452F005231A0 /* CityInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5D29012C07452F005231A0 /* CityInfo.swift */; };
+		8E5D29042C074556005231A0 /* CityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5D29032C074556005231A0 /* CityModel.swift */; };
 		8E6CB7B62C010C9E004B4575 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6CB7B52C010C9E004B4575 /* AppDelegate.swift */; };
 		8E6CB7B82C010C9E004B4575 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6CB7B72C010C9E004B4575 /* SceneDelegate.swift */; };
 		8E6CB7BA2C010C9E004B4575 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6CB7B92C010C9E004B4575 /* ViewController.swift */; };
@@ -33,6 +35,8 @@
 /* Begin PBXFileReference section */
 		8E5D28BC2C04C37A005231A0 /* TravleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravleTableViewCell.swift; sourceTree = "<group>"; };
 		8E5D28BD2C04C37A005231A0 /* TravleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TravleTableViewCell.xib; sourceTree = "<group>"; };
+		8E5D29012C07452F005231A0 /* CityInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityInfo.swift; sourceTree = "<group>"; };
+		8E5D29032C074556005231A0 /* CityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityModel.swift; sourceTree = "<group>"; };
 		8E6CB7B22C010C9E004B4575 /* TravelMagazine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelMagazine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E6CB7B52C010C9E004B4575 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E6CB7B72C010C9E004B4575 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +77,7 @@
 				8EBE0D5F2C03500800D83E34 /* Restaurant.swift */,
 				8ECD543A2C04586500724455 /* TravelModel.swift */,
 				8ED947DD2C010E4300AD84A3 /* MagazineModel.swift */,
+				8E5D29032C074556005231A0 /* CityModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -80,8 +85,8 @@
 		8E6CB7A92C010C9E004B4575 = {
 			isa = PBXGroup;
 			children = (
-				8E6CB7B42C010C9E004B4575 /* TravelMagazine */,
 				8E6CB7B32C010C9E004B4575 /* Products */,
+				8E6CB7B42C010C9E004B4575 /* TravelMagazine */,
 			);
 			sourceTree = "<group>";
 		};
@@ -116,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				8ED947DB2C010E1700AD84A3 /* MagazineInfo.swift */,
+				8E5D29012C07452F005231A0 /* CityInfo.swift */,
 			);
 			path = DummyData;
 			sourceTree = "<group>";
@@ -231,6 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EA9BF9F2C03559200D97438 /* RestaurantTableViewCell.swift in Sources */,
+				8E5D29042C074556005231A0 /* CityModel.swift in Sources */,
 				8E6CB7BA2C010C9E004B4575 /* ViewController.swift in Sources */,
 				8ED947E22C02158E00AD84A3 /* MagazineControllerTableViewCell.swift in Sources */,
 				8ECD543B2C04586500724455 /* TravelModel.swift in Sources */,
@@ -244,6 +251,7 @@
 				8ECD54392C04570200724455 /* RestauranctViewController.swift in Sources */,
 				8E6CB7B62C010C9E004B4575 /* AppDelegate.swift in Sources */,
 				8E6CB7B82C010C9E004B4575 /* SceneDelegate.swift in Sources */,
+				8E5D29022C07452F005231A0 /* CityInfo.swift in Sources */,
 				8ED947DE2C010E4300AD84A3 /* MagazineModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
