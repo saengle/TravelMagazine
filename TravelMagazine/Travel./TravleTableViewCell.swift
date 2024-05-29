@@ -23,7 +23,7 @@ class TravleTableViewCell: UITableViewCell {
     @IBOutlet var stackLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        heartButton.addTarget(self, action: #selector(heartButtonClicked), for: .touchUpInside)
+      
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -32,7 +32,7 @@ class TravleTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configureCell(data: Travel) {
+    func configureCell(data: Travel, like: Bool) {
         travelTitleLabel.text = data.title
         travelTitleLabel.font = .boldSystemFont(ofSize: 17)
         
@@ -61,8 +61,13 @@ class TravleTableViewCell: UITableViewCell {
                       .transition(.fade(1)),
                       .cacheOriginalImage])
         
-        heartButton.tintColor = .white
-        
+        heartButton.tintColor = .red
+        // heartButton bool check
+        if like {
+            heartButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        } else {
+            heartButton.setImage(UIImage(systemName: "heart"), for: .normal)
+        }
         
     }
     

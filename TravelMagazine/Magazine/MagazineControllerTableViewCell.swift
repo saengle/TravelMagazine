@@ -43,21 +43,21 @@ class MagazineControllerTableViewCell: UITableViewCell {
         dateLabel.textColor = .lightGray
         dateLabel.font = .systemFont(ofSize: 9)
         
-        magazineImageView.backgroundColor = .black
+//        magazineImageView.backgroundColor = .black
     }
     // 셀이 재사용 될 때 정해지지 않은 경우에 대한 리셋용
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        magazineImageView.backgroundColor = .black
-        print(#function)
-    }
-    //
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        print(#function)
-        magazineImageView.backgroundColor = .black
-    }
-    
+//    override func prepareForReuse() {
+//        super.prepareForReuse()
+//        magazineImageView.backgroundColor = .black
+//        print(#function)
+//    }
+//    //
+//    override func layoutSubviews() {
+//        super.layoutSubviews()
+//        print(#function)
+//        magazineImageView.backgroundColor = .black
+//    }
+//    
     func configureMagazineCell(_ data: Magazine) {
         // Cell Image
         magazineImageView.contentMode = .scaleToFill
@@ -67,7 +67,7 @@ class MagazineControllerTableViewCell: UITableViewCell {
         let processor = DownsamplingImageProcessor(size: magazineImageView.bounds.size)
         |> RoundCornerImageProcessor(cornerRadius: 20)
         print(#function, "지금 막 바운즈 읽어왔다?")
-        magazineImageView.backgroundColor = .black
+//        magazineImageView.backgroundColor = .black
         // 이미지 준비 될 때 까지 인디케이터 작동
         //        cell.magazineImageView.backgroundColor = .black
         magazineImageView.kf.indicatorType = .activity

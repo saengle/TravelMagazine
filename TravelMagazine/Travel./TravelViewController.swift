@@ -11,6 +11,7 @@ class TravelViewController: UIViewController {
     
     var travelList: [Travel] = TravelInfo().travel
     let adTabelViewCell = AdTableViewCell()
+    var travelLikeList: Array<Bool> = []
     let mainTitleLabel: UILabel = {
         let label = UILabel()
         label.text = "Travel"
@@ -35,6 +36,8 @@ class TravelViewController: UIViewController {
         let adXib = UINib(nibName: "AdTableViewCell", bundle: nil)
         tableView.register( adXib, forCellReuseIdentifier: "AdTableViewCell")
         setUI()
+        travelList.forEach{travelLikeList.append($0.like ?? false)}
+       
     }
     
     private func setUI() {
@@ -71,15 +74,15 @@ extension TravelViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let data = travelList[indexPath.row]
-        
         if data.ad {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "AdTableViewCell", for: indexPath) as? AdTableViewCell else { return UITableViewCell() }
             cell.configureCell(data: data)
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "TravleTableViewCell", for: indexPath) as? TravleTableViewCell else { return UITableViewCell() }
-            cell.configureCell(data: data)
+            cell.configureCell(data: data, like: travelLikeList[indexPath.row])
             cell.heartButton.tag = indexPath.row
+            cell.heartButton.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
             return cell
         }
     }
@@ -87,6 +90,11 @@ extension TravelViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let cellHeight = travelList[indexPath.row].ad ? 70 : 130
         return CGFloat(cellHeight)
+    }
+    
+    @objc private func likeButtonTapped(button: UIButton) {
+        travelLikeList[button.tag].toggle()
+        self.tableView.reloadRows(at: [IndexPath(row: button.tag, section: 0)], with: .automatic)
     }
 }
 

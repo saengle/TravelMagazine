@@ -25,6 +25,7 @@ class AdTableViewCell: UITableViewCell {
         adContentLabel.text = "하와이가 가고 싶다고요 ? 저렴한 가격에 모십니다 델타항공"
         adLabel.layer.cornerRadius = 5
         adLabel.layer.masksToBounds = true
+        adLabel.textColor = .black
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

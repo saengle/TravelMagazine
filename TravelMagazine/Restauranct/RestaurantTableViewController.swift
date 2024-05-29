@@ -10,7 +10,7 @@ import UIKit
 class RestaurantTableViewController: UITableViewController {
     
     var restaurantList = RestaurantList()
-    var likeList: Array<Bool> = []
+    var restauranctLikeList: Array<Bool> = []
     var searchedList: [Restaurant] = []
     
     @IBOutlet var mainView: UIView!
@@ -32,7 +32,7 @@ extension RestaurantTableViewController {
     
     private func makeLikeList() {
         for _ in 0...restaurantList.restaurantArray.count{
-            likeList.append(false)
+            restauranctLikeList.append(false)
         }
     }
     
@@ -55,7 +55,7 @@ extension RestaurantTableViewController {
         cell.heartButton.tag = indexPath.row
         cell.heartButton.addTarget(self, action: #selector(heartButtonTapped), for: .touchUpInside)
         // configure Cell
-        cell.configureRestauranctCell(searchedList[indexPath.row], heart: likeList[indexPath.row])
+        cell.configureRestauranctCell(searchedList[indexPath.row], heart: restauranctLikeList[indexPath.row])
         
         return cell
     }
@@ -95,7 +95,7 @@ extension RestaurantTableViewController {
     }
     
     @objc private func heartButtonTapped(button: UIButton) {
-        likeList[button.tag].toggle()
+        restauranctLikeList[button.tag].toggle()
         self.tableView.reloadRows(at: [IndexPath(row: button.tag, section: 0)], with: .automatic)
     }
 }
