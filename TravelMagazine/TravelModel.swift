@@ -53,7 +53,7 @@ struct TravelInfo {
                save: 7892,
                like: true,
                ad: false),
-        Travel(title: "하와이 여행을 가고싶다면?\n수업이 있는데 가실 생각은 아니시죠?",
+        Travel(title: "하와이 여행을 가고싶다면?",
                description: nil,
                travel_image: nil,
                grade: nil,

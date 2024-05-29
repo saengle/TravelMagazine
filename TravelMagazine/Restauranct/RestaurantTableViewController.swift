@@ -26,6 +26,10 @@ class RestaurantTableViewController: UITableViewController {
         searchRestaurant(keyWord: "")
         hideKeyboardWhenTappedAround()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        print(#function)
+        navigationController?.isNavigationBarHidden = true
+    }
 }
 
 extension RestaurantTableViewController {

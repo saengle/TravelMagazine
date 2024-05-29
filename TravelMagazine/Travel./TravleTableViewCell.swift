@@ -23,13 +23,12 @@ class TravleTableViewCell: UITableViewCell {
     @IBOutlet var stackLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-      
+        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
-        // Configure the view for the selected state
     }
     
     func configureCell(data: Travel, like: Bool) {
@@ -71,14 +70,6 @@ class TravleTableViewCell: UITableViewCell {
         
     }
     
-    @objc func heartButtonClicked(_: UIButton) {
-//        list[sender.tag].like.toggle()
-//        tableView.reloadData()
-//        tableView.reloadRows(at: [IndexPath(row: sender.tag, section: 0)], with: .automatic)
-    }
-        
-    
-    
     private func paintStarPoint (point: Double) {
         starImageList.forEach{$0.image = UIImage(systemName: "star")}
         switch point {
@@ -114,8 +105,6 @@ class TravleTableViewCell: UITableViewCell {
         default:
             print("별 그리기중 오류 발생")
         }
-        
-        
     }
 }
 

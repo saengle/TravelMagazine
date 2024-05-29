@@ -37,9 +37,11 @@ class TravelViewController: UIViewController {
         tableView.register( adXib, forCellReuseIdentifier: "AdTableViewCell")
         setUI()
         travelList.forEach{travelLikeList.append($0.like ?? false)}
-       
+        
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = true
+    }
     private func setUI() {
         addTravelSubView()
         setTravelConstraints()
@@ -90,6 +92,28 @@ extension TravelViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let cellHeight = travelList[indexPath.row].ad ? 70 : 130
         return CGFloat(cellHeight)
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if travelList[indexPath.row].ad {
+            //        1. 스토리보드 가져오기
+            let sb = UIStoryboard(name: "Ad", bundle: nil)
+            //        2. 스토리보드 내 전환하고자 하는 화면 가져오기
+            let vc = sb.instantiateViewController(withIdentifier: "AdViewController") as! AdViewController
+            //        3. 화면 띄우기: 스토리보드에서 네비게이션 컨트롤러가 임베드 되어있지 않으면, push 안됨( navigationController?. 에서 네비컨트롤러 사용함.
+            //        if navigationController != nil { 아래줄 코드와 같음 }
+            navigationController?.pushViewController(vc, animated: true)
+            // 옵셔널체이닝 처리가 되어있어서 네비게이션컨트롤러가 없을 시 클릭은 되지만 작동 X (꺼지지 않음)
+        } else {
+            //        1. 스토리보드 가져오기
+            let sb = UIStoryboard(name: "TravelDetail", bundle: nil)
+            //        2. 스토리보드 내 전환하고자 하는 화면 가져오기
+            let vc = sb.instantiateViewController(withIdentifier: "TravelDetailViewController") as! TravelDetailViewController
+            //        3. 화면 띄우기: 스토리보드에서 네비게이션 컨트롤러가 임베드 되어있지 않으면, push 안됨( navigationController?. 에서 네비컨트롤러 사용함.
+            //        if navigationController != nil { 아래줄 코드와 같음 }
+            navigationController?.pushViewController(vc, animated: true)
+            // 옵셔널체이닝 처리가 되어있어서 네비게이션컨트롤러가 없을 시 클릭은 되지만 작동 X (꺼지지 않음)
+            vc.travel.append(travelList[indexPath.row])
+        }
     }
     
     @objc private func likeButtonTapped(button: UIButton) {
