@@ -34,7 +34,7 @@ class CityTableViewCell: UITableViewCell {
         
         cityExplainLabel.text = data.city_explain
        
-        cityImageView.contentMode = .scaleToFill
+        cityImageView.contentMode = .scaleAspectFill
         let url = URL(string: data.city_image)
         let processor = DownsamplingImageProcessor(size: cityImageView.bounds.size)
         |> RoundCornerImageProcessor(cornerRadius: 20, roundingCorners: [.topLeft, .bottomRight], backgroundColor: .white)

@@ -252,6 +252,9 @@
                                     <segment title="국내"/>
                                     <segment title="해외"/>
                                 </segments>
+                                <connections>
+                                    <action selector="citySegmentChanged:" destination="Bo2-ai-UZB" eventType="valueChanged" id="6C1-p4-Mu1"/>
+                                </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="9Dw-Gf-yLW">
                                 <rect key="frame" x="16" y="199" width="343" height="530"/>
@@ -277,6 +280,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="City" id="f3X-KQ-YA3"/>
                     <connections>
+                        <outlet property="citySegment" destination="WcX-av-mjW" id="WMV-KI-ZMC"/>
                         <outlet property="tableView" destination="9Dw-Gf-yLW" id="4GF-KF-tSV"/>
                     </connections>
                 </viewController>
