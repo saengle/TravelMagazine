@@ -17,7 +17,7 @@ struct Travel:  Hashable {
     
     var subTitleDescription: String {
         if let grade, let save {
-            return "\(grade) 저장 \(save)"
+            return "\(grade) | 좋아요 \(save)"
         } else { return ""}
         
     }

@@ -16,6 +16,7 @@
 		8E5D29082C07493F005231A0 /* TravelDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E5D29072C07493F005231A0 /* TravelDetail.storyboard */; };
 		8E5D290A2C074D3B005231A0 /* AdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5D29092C074D3B005231A0 /* AdViewController.swift */; };
 		8E5D290C2C074D7A005231A0 /* Ad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E5D290B2C074D7A005231A0 /* Ad.storyboard */; };
+		8E5D290F2C076357005231A0 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5D290E2C076357005231A0 /* UIView+Extension.swift */; };
 		8E6CB7B62C010C9E004B4575 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6CB7B52C010C9E004B4575 /* AppDelegate.swift */; };
 		8E6CB7B82C010C9E004B4575 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6CB7B72C010C9E004B4575 /* SceneDelegate.swift */; };
 		8E6CB7BA2C010C9E004B4575 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6CB7B92C010C9E004B4575 /* ViewController.swift */; };
@@ -45,6 +46,7 @@
 		8E5D29072C07493F005231A0 /* TravelDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TravelDetail.storyboard; sourceTree = "<group>"; };
 		8E5D29092C074D3B005231A0 /* AdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdViewController.swift; sourceTree = "<group>"; };
 		8E5D290B2C074D7A005231A0 /* Ad.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Ad.storyboard; sourceTree = "<group>"; };
+		8E5D290E2C076357005231A0 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		8E6CB7B22C010C9E004B4575 /* TravelMagazine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelMagazine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E6CB7B52C010C9E004B4575 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E6CB7B72C010C9E004B4575 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +92,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		8E5D290D2C076339005231A0 /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				8E5D290E2C076357005231A0 /* UIView+Extension.swift */,
+			);
+			path = extension;
+			sourceTree = "<group>";
+		};
 		8E6CB7A92C010C9E004B4575 = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +119,7 @@
 		8E6CB7B42C010C9E004B4575 /* TravelMagazine */ = {
 			isa = PBXGroup;
 			children = (
+				8E5D290D2C076339005231A0 /* extension */,
 				8E6CB7B52C010C9E004B4575 /* AppDelegate.swift */,
 				8E6CB7B72C010C9E004B4575 /* SceneDelegate.swift */,
 				8E6CB7B92C010C9E004B4575 /* ViewController.swift */,
@@ -261,6 +272,7 @@
 				8E5D28BE2C04C37A005231A0 /* TravleTableViewCell.swift in Sources */,
 				8ED947E02C02105600AD84A3 /* MagazineViewController.swift in Sources */,
 				8E5D29062C074842005231A0 /* TravelDetailViewController.swift in Sources */,
+				8E5D290F2C076357005231A0 /* UIView+Extension.swift in Sources */,
 				8EBE0D602C03500800D83E34 /* Restaurant.swift in Sources */,
 				8ECD544A2C04906E00724455 /* AdTableViewCell.swift in Sources */,
 				8ECD54392C04570200724455 /* RestauranctViewController.swift in Sources */,

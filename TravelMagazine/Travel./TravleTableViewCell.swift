@@ -40,7 +40,7 @@ class TravleTableViewCell: UITableViewCell {
         travelSubTitleLabel.numberOfLines = 0
         travelSubTitleLabel.font = .systemFont(ofSize: 14)
         
-        paintStarPoint(point: data.grade!)
+        paintStarPoint(point: data.grade!, starImageList: starImageList)
         starImageList.forEach{$0.tintColor = .orange}
         
         stackLabel.text = data.subTitleDescription
@@ -70,45 +70,6 @@ class TravleTableViewCell: UITableViewCell {
         
     }
     
-    private func paintStarPoint (point: Double) {
-        starImageList.forEach{$0.image = UIImage(systemName: "star")}
-        switch point {
-        case 0.5..<1.0:
-            starImageList[0].image = UIImage(systemName: "star.fill.left")
-        case 1.0..<1.5:
-            starImageList[0].image = UIImage(systemName: "star.fill")
-        case 1.5..<2:
-            starImageList[0].image = UIImage(systemName: "star.fill")
-            starImageList[1].image = UIImage(systemName: "star.fill.left")
-        case 2..<2.5:
-            starImageList[0].image = UIImage(systemName: "star.fill")
-            starImageList[1].image = UIImage(systemName: "star.fill")
-        case 2.5..<3:
-            starImageList[0].image = UIImage(systemName: "star.fill")
-            starImageList[1].image = UIImage(systemName: "star.fill")
-            starImageList[2].image = UIImage(systemName: "star.fill.left")
-        case 3..<3.5:
-            starImageList[0].image = UIImage(systemName: "star.fill")
-            starImageList[1].image = UIImage(systemName: "star.fill")
-            starImageList[2].image = UIImage(systemName: "star.fill")
-        case 3.5..<4:
-            starImageList[0].image = UIImage(systemName: "star.fill")
-            starImageList[1].image = UIImage(systemName: "star.fill")
-            starImageList[2].image = UIImage(systemName: "star.fill")
-            starImageList[3].image = UIImage(systemName: "star.fill.left")
-        case 4..<4.5:
-            starImageList[0].image = UIImage(systemName: "star.fill")
-            starImageList[1].image = UIImage(systemName: "star.fill")
-            starImageList[2].image = UIImage(systemName: "star.fill")
-            starImageList[3].image = UIImage(systemName: "star.fill")
-        case 4.5..<5:
-            starImageList.forEach{$0.image = UIImage(systemName: "star.fill")}
-            starImageList[4].image = UIImage(systemName: "star.fill.left")
-        case 5:
-            starImageList.forEach{$0.image = UIImage(systemName: "star.fill")}
-        default:
-            print("오류 발생")
-        }
-    }
+
 }
 
