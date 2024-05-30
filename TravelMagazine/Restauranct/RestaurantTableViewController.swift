@@ -35,7 +35,7 @@ class RestaurantTableViewController: UITableViewController {
 extension RestaurantTableViewController {
     
     private func makeLikeList() {
-        for _ in 0...restaurantList.restaurantArray.count{
+        for _ in 0...RestaurantList.restaurantArray.count{
             restauranctLikeList.append(false)
         }
     }
@@ -64,6 +64,12 @@ extension RestaurantTableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let sb = UIStoryboard(name: "RestauranctMap", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "RestauranctMapViewController") as! RestauranctMapViewController
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     private func searchTextFieldAddTarget(textField: UITextField) {
         textField.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
         textField.addTarget(self, action: #selector(keyboardDismiss), for: .editingDidEnd)
@@ -80,16 +86,18 @@ extension RestaurantTableViewController {
         searchRestaurant(keyWord: text)
     }
     
+    
+    
     private func searchRestaurant(keyWord: String) {
         // clear searchedList before search
         if keyWord != "" {
             self.searchedList.removeAll()
         } else {
             self.searchedList.removeAll()
-            searchedList.append(contentsOf: restaurantList.restaurantArray)
+            searchedList.append(contentsOf: RestaurantList.restaurantArray)
         }
         
-        searchedList.append(contentsOf: restaurantList.restaurantArray.filter{$0.category.contains(keyWord) || $0.name.contains(keyWord)})
+        searchedList.append(contentsOf: RestaurantList.restaurantArray.filter{$0.category.contains(keyWord) || $0.name.contains(keyWord)})
         
         self.tableView.reloadData()
     }
