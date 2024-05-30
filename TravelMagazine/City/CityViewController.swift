@@ -27,7 +27,6 @@ class CityViewController: UIViewController {
         tableView.rowHeight = 150
         segmentFilteredCity = CityInfo.city
         wholeFilteredCity = segmentFilteredCity
-        cityTextField.addTarget(self, action: #selector(searchTextField), for: .editingChanged)
     }
     
     @IBAction func citySegmentChanged(_ sender: UISegmentedControl) {
@@ -64,6 +63,12 @@ extension CityViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 extension CityViewController {
+    private func addTargets() {
+        cityTextField.addTarget(self, action: #selector(searchTextField), for: .editingChanged)
+        cityTextField.addTarget(self, action: #selector(keyboardDismiss), for: .editingDidEnd)
+        cityTextField.addTarget(self, action: #selector(keyboardDismiss), for: .editingDidEndOnExit)
+    }
+    
     //editing changed
     @objc func searchTextField(sender: UITextField) {
         guard let keyWord = sender.text else {return}

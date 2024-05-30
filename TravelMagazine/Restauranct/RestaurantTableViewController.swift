@@ -70,10 +70,6 @@ extension RestaurantTableViewController {
         textField.addTarget(self, action: #selector(keyboardDismiss), for: .editingDidEndOnExit)
     }
     
-    @objc func keyboardDismiss() {
-        view.endEditing(true)
-    }
-    
     @objc func textFieldEditingChanged(textField: UITextField) {
         guard let text = textField.text else {
             return print("오류가 발생했습니다.")
