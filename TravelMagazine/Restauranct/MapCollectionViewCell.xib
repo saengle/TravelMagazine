@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="MapCollectionViewCell" reuseIdentifier="MapCollectionViewCell" id="gTV-IL-0wX" customClass="MapCollectionViewCell" customModule="TravelMagazine" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="79" height="20"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="79" height="20"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="es7-VN-DBI">
+                        <rect key="frame" x="0.0" y="0.0" width="79" height="20"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5hW-0Y-8oQ">
+                                <rect key="frame" x="2" y="-7.3333333333333321" width="75" height="34.666666666666664"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBrownColor"/>
+                        <constraints>
+                            <constraint firstItem="5hW-0Y-8oQ" firstAttribute="centerX" secondItem="es7-VN-DBI" secondAttribute="centerX" id="U2W-qK-SE4"/>
+                            <constraint firstItem="5hW-0Y-8oQ" firstAttribute="centerY" secondItem="es7-VN-DBI" secondAttribute="centerY" id="Vhn-hE-WsA"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="es7-VN-DBI" secondAttribute="bottom" id="CgJ-jk-9d9"/>
+                <constraint firstItem="es7-VN-DBI" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="cAH-Gh-CLM"/>
+                <constraint firstItem="es7-VN-DBI" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="cwa-3I-0xq"/>
+                <constraint firstItem="es7-VN-DBI" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="ddk-Rd-rO6"/>
+                <constraint firstAttribute="trailing" secondItem="es7-VN-DBI" secondAttribute="trailing" id="m6t-2e-TXC"/>
+                <constraint firstItem="es7-VN-DBI" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="meM-8T-VmK"/>
+            </constraints>
+            <size key="customSize" width="79" height="52"/>
+            <connections>
+                <outlet property="myButton" destination="5hW-0Y-8oQ" id="Bzi-Rh-RgG"/>
+            </connections>
+            <point key="canvasLocation" x="77.099236641221367" y="-33.098591549295776"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBrownColor">
+            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
