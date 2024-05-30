@@ -67,6 +67,7 @@ extension RestaurantTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let sb = UIStoryboard(name: "RestauranctMap", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "RestauranctMapViewController") as! RestauranctMapViewController
+        vc.addFirstAnnotation(keyWord: searchedList[indexPath.row].name)
         navigationController?.pushViewController(vc, animated: true)
     }
     

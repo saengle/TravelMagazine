@@ -30,18 +30,11 @@ class RestauranctMapViewController: UIViewController{
         navigationController?.isNavigationBarHidden = false
         configureUI()
         // 중심값(필수): 위, 경도 37.5177783, 126.8863443
-        let center = CLLocationCoordinate2D(latitude: 37.5177783,
-                                            longitude: 126.8863443)
+   
+
         
-
-        // center를 중심으로 지정한 미터(m)만큼의 영역을 보여줌
-        let region = MKCoordinateRegion(center: center,
-                                        latitudinalMeters: 300 ,
-                                        longitudinalMeters: 300)
-
-        mapView.setRegion(region, animated: true)
 //        addWholeAnotation()
-        addAnnotations(keyWord: "한식")
+//        addAnnotations(keyWord: "한식")
 //        buttonsCV.delegate = self
 //        buttonsCV.dataSource = self
     }
@@ -103,6 +96,28 @@ extension RestauranctMapViewController: MKMapViewDelegate {
             
             mapView.addAnnotations(annotations)
         }
+    }
+    
+     func addFirstAnnotation(keyWord: String) {
+        mapView.removeAnnotations(annotations)
+        annotations.removeAll()
+        var tempRestauranct: [Restaurant] = []
+        tempRestauranct.append(contentsOf: RestaurantList.restaurantArray.filter{$0.name == keyWord})
+         
+         let center = CLLocationCoordinate2D(latitude: tempRestauranct[0].latitude,
+                                             longitude: tempRestauranct[0].longitude)
+                  // center를 중심으로 지정한 미터(m)만큼의 영역을 보여줌
+         let region = MKCoordinateRegion(center: center,
+                                         latitudinalMeters: 500 ,
+                                         longitudinalMeters: 500)
+         mapView.setRegion(region, animated: true)
+            let annotation = MKPointAnnotation()
+            annotation.title = "\(tempRestauranct[0].name)"
+            annotation.coordinate = CLLocationCoordinate2D(latitude: tempRestauranct[0].latitude, longitude: tempRestauranct[0].longitude)
+            annotations.append(annotation)
+            
+            mapView.addAnnotations(annotations)
+        
     }
     
     @objc func navDrawerClicked() {
