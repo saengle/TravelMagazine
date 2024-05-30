@@ -281,6 +281,7 @@
                     <navigationItem key="navigationItem" title="City" id="f3X-KQ-YA3"/>
                     <connections>
                         <outlet property="citySegment" destination="WcX-av-mjW" id="WMV-KI-ZMC"/>
+                        <outlet property="cityTextField" destination="7jf-W6-J1u" id="5Dx-lD-rtJ"/>
                         <outlet property="tableView" destination="9Dw-Gf-yLW" id="4GF-KF-tSV"/>
                     </connections>
                 </viewController>

@@ -14,6 +14,8 @@ class CityViewController: UIViewController {
     var segmentFilteredCity: [City] = []
     var wholeFilteredCity: [City] = []
     
+    @IBOutlet var cityTextField: UITextField!
+    
     @IBOutlet var citySegment: UISegmentedControl!
     
     override func viewDidLoad() {
@@ -24,10 +26,12 @@ class CityViewController: UIViewController {
         tableView.register( cityXib, forCellReuseIdentifier: "CityTableViewCell")
         tableView.rowHeight = 150
         segmentFilteredCity = CityInfo.city
+        wholeFilteredCity = segmentFilteredCity
+        cityTextField.addTarget(self, action: #selector(searchTextField), for: .editingChanged)
     }
     
     @IBAction func citySegmentChanged(_ sender: UISegmentedControl) {
-        segmentFilteredCity = []
+        segmentFilteredCity.removeAll()
         switch sender.selectedSegmentIndex {
         case 0:
             segmentFilteredCity.append(contentsOf: CityInfo.city)
@@ -38,6 +42,7 @@ class CityViewController: UIViewController {
         default:
             print("segment has an Error")
         }
+        searchCity(keyWord: cityTextField.text!)
         tableView.reloadData()
     }
 }
@@ -45,17 +50,35 @@ class CityViewController: UIViewController {
 extension CityViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        segmentFilteredCity.count
+        wholeFilteredCity.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CityTableViewCell", for: indexPath) as? CityTableViewCell else {return UITableViewCell()}
         
-        cell.configureCityCell(data: segmentFilteredCity[indexPath.row])
+        cell.configureCityCell(data: wholeFilteredCity[indexPath.row])
         
         return cell
     }
 }
 
-
+extension CityViewController {
+    //editing changed
+    @objc func searchTextField(sender: UITextField) {
+        guard let keyWord = sender.text else {return}
+        
+        wholeFilteredCity = segmentFilteredCity
+        
+        if keyWord.last == " " {
+            sender.text?.popLast()
+        }
+        searchCity(keyWord: keyWord)
+    }
+    
+    private func searchCity(keyWord: String) {
+        wholeFilteredCity.removeAll()
+        wholeFilteredCity.append(contentsOf: segmentFilteredCity.filter{$0.city_name.contains(keyWord) || $0.city_explain.contains(keyWord) || $0.city_english_name.lowercased().contains(keyWord.lowercased())})
+        tableView.reloadData()
+    }
+}
