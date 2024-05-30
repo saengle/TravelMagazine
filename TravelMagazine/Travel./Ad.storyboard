@@ -28,7 +28,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="광고" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lLp-Zl-MZM">
-                                <rect key="frame" x="140" y="387" width="113" height="78"/>
+                                <rect key="frame" x="20" y="387" width="353" height="78"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="65"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -38,11 +38,16 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="KfS-mP-vHp" secondAttribute="bottom" constant="16" id="GMU-f1-HKv"/>
+                            <constraint firstItem="lLp-Zl-MZM" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="Its-nV-wnf"/>
                             <constraint firstItem="lLp-Zl-MZM" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="S6h-ZP-Uvs"/>
                             <constraint firstItem="lLp-Zl-MZM" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="XXr-tu-NNq"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="lLp-Zl-MZM" secondAttribute="trailing" constant="20" id="gpH-CI-xJ7"/>
                             <constraint firstItem="KfS-mP-vHp" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="ib0-Wu-ceO"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="adLabel" destination="lLp-Zl-MZM" id="QJj-Sm-mnE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

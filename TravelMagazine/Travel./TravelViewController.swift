@@ -101,6 +101,7 @@ extension TravelViewController: UITableViewDelegate, UITableViewDataSource{
             let vc = sb.instantiateViewController(withIdentifier: "AdViewController") as! AdViewController
             //        3. 화면 띄우기: 스토리보드에서 네비게이션 컨트롤러가 임베드 되어있지 않으면, push 안됨( navigationController?. 에서 네비컨트롤러 사용함.
             //        if navigationController != nil { 아래줄 코드와 같음 }
+            vc.adTravel = travelList[indexPath.row]
             present(vc, animated: true)
             // 옵셔널체이닝 처리가 되어있어서 네비게이션컨트롤러가 없을 시 클릭은 되지만 작동 X (꺼지지 않음)
         } else {
@@ -110,9 +111,10 @@ extension TravelViewController: UITableViewDelegate, UITableViewDataSource{
             let vc = sb.instantiateViewController(withIdentifier: "TravelDetailViewController") as! TravelDetailViewController
             //        3. 화면 띄우기: 스토리보드에서 네비게이션 컨트롤러가 임베드 되어있지 않으면, push 안됨( navigationController?. 에서 네비컨트롤러 사용함.
             //        if navigationController != nil { 아래줄 코드와 같음 }
+            vc.travel.append(travelList[indexPath.row])
             navigationController?.pushViewController(vc, animated: true)
             // 옵셔널체이닝 처리가 되어있어서 네비게이션컨트롤러가 없을 시 클릭은 되지만 작동 X (꺼지지 않음)
-            vc.travel.append(travelList[indexPath.row])
+            
         }
     }
     
