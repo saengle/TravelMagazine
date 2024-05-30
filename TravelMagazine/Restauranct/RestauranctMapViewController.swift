@@ -14,6 +14,11 @@ class RestauranctMapViewController: UIViewController{
     let mapView = MKMapView()
     var annotations: [MKAnnotation] = []
     
+    let buttonsCV: UICollectionView = {
+        let view = UICollectionView()
+       
+        return view
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +40,8 @@ class RestauranctMapViewController: UIViewController{
         mapView.setRegion(region, animated: true)
 //        addWholeAnotation()
         addAnnotations(keyWord: "한식")
+        buttonsCV.delegate = self
+        buttonsCV.dataSource = self
     }
     
     
@@ -79,6 +86,7 @@ extension RestauranctMapViewController: MKMapViewDelegate {
     }
     
     private func addAnnotations(keyWord: String) {
+        // category ["한식", "경양식", "양식", "중식", "일식", "카페", "모두"]
         annotations.removeAll()
         var tempRestauranct: [Restaurant] = []
         tempRestauranct.append(contentsOf: RestaurantList.restaurantArray.filter{$0.category.contains(keyWord)})
@@ -94,5 +102,21 @@ extension RestauranctMapViewController: MKMapViewDelegate {
     @objc func navDrawerClicked() {
         
     }
+    
+}
+
+extension RestauranctMapViewController: UICollectionViewDelegate, UICollectionViewDataSource{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
+    }
+    
+
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        return UICollectionViewCell()
+    }
+    
+    
     
 }
