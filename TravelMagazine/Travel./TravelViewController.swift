@@ -32,9 +32,9 @@ class TravelViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         let travelXib = UINib(nibName: "TravleTableViewCell", bundle: nil)
-        tableView.register( travelXib, forCellReuseIdentifier: "TravleTableViewCell")
+        tableView.register( travelXib, forCellReuseIdentifier: TravleTableViewCell.identifier)
         let adXib = UINib(nibName: "AdTableViewCell", bundle: nil)
-        tableView.register( adXib, forCellReuseIdentifier: "AdTableViewCell")
+        tableView.register( adXib, forCellReuseIdentifier: AdTableViewCell.identifier)
         setUI()
         travelList.forEach{travelLikeList.append($0.like ?? false)}
         
@@ -77,11 +77,11 @@ extension TravelViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let data = travelList[indexPath.row]
         if data.ad {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "AdTableViewCell", for: indexPath) as? AdTableViewCell else { return UITableViewCell() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: AdTableViewCell.identifier, for: indexPath) as? AdTableViewCell else { return UITableViewCell() }
             cell.configureCell(data: data)
             return cell
         } else {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "TravleTableViewCell", for: indexPath) as? TravleTableViewCell else { return UITableViewCell() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: TravleTableViewCell.identifier, for: indexPath) as? TravleTableViewCell else { return UITableViewCell() }
             cell.configureCell(data: data, like: travelLikeList[indexPath.row])
             cell.heartButton.tag = indexPath.row
             cell.heartButton.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
@@ -98,7 +98,7 @@ extension TravelViewController: UITableViewDelegate, UITableViewDataSource{
             //        1. 스토리보드 가져오기
             let sb = UIStoryboard(name: "Ad", bundle: nil)
             //        2. 스토리보드 내 전환하고자 하는 화면 가져오기
-            let vc = sb.instantiateViewController(withIdentifier: "AdViewController") as! AdViewController
+            let vc = sb.instantiateViewController(withIdentifier: AdViewController.identifier) as! AdViewController
             //        3. 화면 띄우기: 스토리보드에서 네비게이션 컨트롤러가 임베드 되어있지 않으면, push 안됨( navigationController?. 에서 네비컨트롤러 사용함.
             //        if navigationController != nil { 아래줄 코드와 같음 }
             vc.adTravel = travelList[indexPath.row]
@@ -108,7 +108,7 @@ extension TravelViewController: UITableViewDelegate, UITableViewDataSource{
             //        1. 스토리보드 가져오기
             let sb = UIStoryboard(name: "TravelDetail", bundle: nil)
             //        2. 스토리보드 내 전환하고자 하는 화면 가져오기
-            let vc = sb.instantiateViewController(withIdentifier: "TravelDetailViewController") as! TravelDetailViewController
+            let vc = sb.instantiateViewController(withIdentifier: TravelDetailViewController.identifier) as! TravelDetailViewController
             //        3. 화면 띄우기: 스토리보드에서 네비게이션 컨트롤러가 임베드 되어있지 않으면, push 안됨( navigationController?. 에서 네비컨트롤러 사용함.
             //        if navigationController != nil { 아래줄 코드와 같음 }
             vc.travel.append(travelList[indexPath.row])

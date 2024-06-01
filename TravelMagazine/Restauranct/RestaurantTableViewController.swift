@@ -52,7 +52,7 @@ extension RestaurantTableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantTableViewCell", for: indexPath) as? RestaurantTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: RestaurantTableViewCell.identifier, for: indexPath) as? RestaurantTableViewCell else {
             return UITableViewCell()
         }
         // Whole cell's heartButton addTarget & add tag
@@ -66,7 +66,7 @@ extension RestaurantTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let sb = UIStoryboard(name: "RestauranctMap", bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: "RestauranctMapViewController") as! RestauranctMapViewController
+        let vc = sb.instantiateViewController(withIdentifier: RestauranctMapViewController.identifier) as! RestauranctMapViewController
         vc.addFirstAnnotation(keyWord: searchedList[indexPath.row].name)
         navigationController?.pushViewController(vc, animated: true)
     }

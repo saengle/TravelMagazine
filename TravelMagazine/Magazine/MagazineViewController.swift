@@ -24,7 +24,7 @@ class MagazineViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MagazineControllerTableViewCell", for: indexPath) as? MagazineControllerTableViewCell else { return UITableViewCell()}
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MagazineControllerTableViewCell.identifier, for: indexPath) as? MagazineControllerTableViewCell else { return UITableViewCell()}
         
         cell.configureMagazineCell(MagazineInfo.magazine[indexPath.row])
         

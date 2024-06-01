@@ -23,7 +23,7 @@ class CityViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         let cityXib = UINib(nibName: "CityTableViewCell", bundle: nil)
-        tableView.register( cityXib, forCellReuseIdentifier: "CityTableViewCell")
+        tableView.register( cityXib, forCellReuseIdentifier: CityTableViewCell.identifier)
         tableView.rowHeight = 150
         segmentFilteredCity = CityInfo.city
         wholeFilteredCity = segmentFilteredCity
@@ -54,7 +54,7 @@ extension CityViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CityTableViewCell", for: indexPath) as? CityTableViewCell else {return UITableViewCell()}
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CityTableViewCell.identifier, for: indexPath) as? CityTableViewCell else {return UITableViewCell()}
         
         cell.configureCityCell(data: wholeFilteredCity[indexPath.row])
         

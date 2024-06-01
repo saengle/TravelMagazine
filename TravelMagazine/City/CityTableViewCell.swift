@@ -33,6 +33,10 @@ class CityTableViewCell: UITableViewCell {
         cityNameLabel.text = "\(data.city_name) | \(data.city_english_name)"
         
         cityExplainLabel.text = data.city_explain
+        
+        cityExplainLabel.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMinYCorner]
+        cityExplainLabel.clipsToBounds = true
+        cityExplainLabel.layer.cornerRadius = 20
        
         cityImageView.contentMode = .scaleAspectFill
         let url = URL(string: data.city_image)
