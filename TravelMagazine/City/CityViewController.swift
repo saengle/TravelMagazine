@@ -12,7 +12,9 @@ class CityViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     
     var segmentFilteredCity: [City] = []
+    var searchedCity: [City] = []
     var wholeFilteredCity: [City] = []
+    lazy var resultList: [City] = []
     
     @IBOutlet var cityTextField: UITextField!
     
@@ -22,11 +24,13 @@ class CityViewController: UIViewController {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+        addTargets()
         let cityXib = UINib(nibName: "CityTableViewCell", bundle: nil)
         tableView.register( cityXib, forCellReuseIdentifier: CityTableViewCell.identifier)
         tableView.rowHeight = 150
         segmentFilteredCity = CityInfo.city
-        wholeFilteredCity = segmentFilteredCity
+        searchedCity = CityInfo.city
+        wholeFilteredCity = CityInfo.city
     }
     
     @IBAction func citySegmentChanged(_ sender: UISegmentedControl) {
@@ -41,8 +45,7 @@ class CityViewController: UIViewController {
         default:
             print("segment has an Error")
         }
-        searchCity(keyWord: cityTextField.text!)
-        tableView.reloadData()
+        wholeFilterdCityReload()
     }
 }
 
@@ -73,8 +76,6 @@ extension CityViewController {
     @objc func searchTextField(sender: UITextField) {
         guard let keyWord = sender.text else {return}
         
-        wholeFilteredCity = segmentFilteredCity
-        
         if keyWord.last == " " {
             sender.text?.popLast()
         }
@@ -82,8 +83,20 @@ extension CityViewController {
     }
     
     private func searchCity(keyWord: String) {
+        searchedCity.removeAll()
+        if keyWord.isEmpty {
+            searchedCity.append(contentsOf: CityInfo.city)
+        } else {
+            searchedCity.append(contentsOf: CityInfo.city.filter{$0.city_name.contains(keyWord) || $0.city_explain.contains(keyWord) || $0.city_english_name.lowercased().contains(keyWord.lowercased())})
+        }
+        wholeFilterdCityReload()
+        
+    }
+    
+    private func wholeFilterdCityReload() {
+//        print(wholeFilteredCity)
         wholeFilteredCity.removeAll()
-        wholeFilteredCity.append(contentsOf: segmentFilteredCity.filter{$0.city_name.contains(keyWord) || $0.city_explain.contains(keyWord) || $0.city_english_name.lowercased().contains(keyWord.lowercased())})
+        wholeFilteredCity.append(contentsOf: Array(Set(searchedCity).intersection(Set(segmentFilteredCity))))
         tableView.reloadData()
     }
 }
