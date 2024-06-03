@@ -12,27 +12,44 @@ class ChattingViewController: UIViewController {
     @IBOutlet var chatTextField: UITextField!
     @IBOutlet var chatTableView: UITableView!
     
+    let chatList = mockChatList
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        chatTableView.rowHeight = 50
-        view.backgroundColor = .black
-        
+        configureUI()
+        print(chatList.count)
     }
     
 }
 
 extension ChattingViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        return chatList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ChatMainTableViewCell.identifier, for: indexPath) as? ChatMainTableViewCell else { return UITableViewCell()}
+        
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let sb = UIStoryboard(name: "ChattingDetailView", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: ChattingDetailViewController.identifier) as! ChattingDetailViewController
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
 extension ChattingViewController {
     private func configureUI() {
-        
+        chatTableView.rowHeight = 60
+        navigationController?.title = "Travel Talk"
+        chatTextField.placeholder = "친구 이름을 검색하세요"
+        let xib = UINib(nibName: ChatMainTableViewCell.identifier, bundle: nil)
+        chatTableView.register(xib, forCellReuseIdentifier: ChatMainTableViewCell.identifier)
+        chatTableView.dataSource = self
+        chatTableView.delegate = self
     }
 }
