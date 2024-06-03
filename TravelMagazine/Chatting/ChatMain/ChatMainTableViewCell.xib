@@ -10,34 +10,34 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="60" id="KGk-i7-Jjw" customClass="ChatMainTableViewCell" customModule="TravelMagazine" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="72" id="KGk-i7-Jjw" customClass="ChatMainTableViewCell" customModule="TravelMagazine" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="72"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="72"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KZh-qM-rYv">
-                        <rect key="frame" x="8" y="10" width="40" height="40"/>
+                        <rect key="frame" x="8" y="10" width="52" height="52"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="40" id="kut-Un-AmC"/>
-                            <constraint firstAttribute="height" constant="40" id="qVI-4M-5Yy"/>
+                            <constraint firstAttribute="width" constant="52" id="kut-Un-AmC"/>
+                            <constraint firstAttribute="height" constant="52" id="qVI-4M-5Yy"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RfN-Ev-EeD">
-                        <rect key="frame" x="56" y="8" width="42" height="21"/>
+                        <rect key="frame" x="68" y="13" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffe-gI-0PJ">
-                        <rect key="frame" x="56" y="33" width="248" height="21"/>
+                        <rect key="frame" x="68" y="38" width="236" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6jl-70-rmX">
-                        <rect key="frame" x="262" y="8" width="42" height="21"/>
+                        <rect key="frame" x="262" y="13" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -45,7 +45,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="6jl-70-rmX" firstAttribute="leading" secondItem="RfN-Ev-EeD" secondAttribute="trailing" constant="16" id="0dD-2Q-Pjw"/>
-                    <constraint firstItem="RfN-Ev-EeD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="0y5-Z3-AVH"/>
+                    <constraint firstItem="RfN-Ev-EeD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13" id="0y5-Z3-AVH"/>
                     <constraint firstItem="KZh-qM-rYv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="GCR-U4-7Uy"/>
                     <constraint firstAttribute="trailing" secondItem="ffe-gI-0PJ" secondAttribute="trailing" constant="16" id="Kiu-cG-898"/>
                     <constraint firstItem="RfN-Ev-EeD" firstAttribute="leading" secondItem="KZh-qM-rYv" secondAttribute="trailing" constant="8" id="X6m-qr-1zO"/>
@@ -63,7 +63,7 @@
                 <outlet property="chatRoomIdLabel" destination="RfN-Ev-EeD" id="chA-Kh-gG1"/>
                 <outlet property="chatRoomImageView" destination="KZh-qM-rYv" id="KAY-YW-Rwp"/>
             </connections>
-            <point key="canvasLocation" x="51.908396946564885" y="-26.760563380281692"/>
+            <point key="canvasLocation" x="62.595419847328245" y="-25.35211267605634"/>
         </tableViewCell>
     </objects>
 </document>

@@ -29,7 +29,7 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ChatMainTableViewCell.identifier, for: indexPath) as? ChatMainTableViewCell else { return UITableViewCell()}
-        
+        cell.configureCell(data: chatList[indexPath.row])
         
         return cell
     }
@@ -44,12 +44,16 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension ChattingViewController {
     private func configureUI() {
-        chatTableView.rowHeight = 60
+        chatTableView.rowHeight = 70
         navigationController?.title = "Travel Talk"
-        chatTextField.placeholder = "친구 이름을 검색하세요"
         let xib = UINib(nibName: ChatMainTableViewCell.identifier, bundle: nil)
         chatTableView.register(xib, forCellReuseIdentifier: ChatMainTableViewCell.identifier)
         chatTableView.dataSource = self
         chatTableView.delegate = self
+        chatTableView.separatorColor = .clear
+        
+        chatTextField.placeholder = "친구 이름을 검색하세요"
+        chatTextField.backgroundColor = .systemGray6
+        
     }
 }

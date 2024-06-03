@@ -11,15 +11,37 @@ import Kingfisher
 
 class ChatMainTableViewCell: UITableViewCell {
 
+    let chatList: [ChatRoom] = []
+    
     @IBOutlet var chatRoomImageView: UIImageView!
     @IBOutlet var chatRoomIdLabel: UILabel!
     @IBOutlet var chatRoomDateLabel: UILabel!
     @IBOutlet var chatRoomContentLabel: UILabel!
     override func awakeFromNib() {
+        
         super.awakeFromNib()
-        // Initialization code
     }
-    
+    func configureCell(data: ChatRoom) {
+        
+        chatRoomImageView.layer.cornerRadius = 26
+        chatRoomImageView.clipsToBounds = true
+        chatRoomImageView.contentMode = .scaleAspectFit
+        chatRoomImageView.image = UIImage(named: data.chatroomImage.first!)
+        
+        chatRoomIdLabel.text = data.chatroomName
+        chatRoomIdLabel.font = .boldSystemFont(ofSize: 17)
+        chatRoomIdLabel.textAlignment = .left
+        
+        chatRoomDateLabel.text = data.chatList.last?.date
+        chatRoomDateLabel.font = .systemFont(ofSize: 12)
+        chatRoomDateLabel.textAlignment = .right
+        chatRoomDateLabel.textColor = .systemGray3
+        
+        
+        chatRoomContentLabel.text = data.chatList.last?.message
+        chatRoomContentLabel.font = .systemFont(ofSize: 14)
+        chatRoomContentLabel.textColor = .systemGray
+    }
 }
 //let chatroomId: Int //채팅방 고유 ID
 //let chatroomImage: [String] //채팅방에 속한 유저 이미지
