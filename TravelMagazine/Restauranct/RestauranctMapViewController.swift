@@ -30,7 +30,6 @@ class RestauranctMapViewController: UIViewController{
         navigationController?.isNavigationBarHidden = false
         configureUI()
         // 중심값(필수): 위, 경도 37.5177783, 126.8863443
-   
 
         
 //        addWholeAnotation()
@@ -38,7 +37,7 @@ class RestauranctMapViewController: UIViewController{
 //        buttonsCV.delegate = self
 //        buttonsCV.dataSource = self
     }
-    
+  
     
 }
 
@@ -48,6 +47,9 @@ extension RestauranctMapViewController: MKMapViewDelegate {
         
     }
     
+    func mapView(_ mapView: MKMapView, didSelect annotation: any MKAnnotation) {
+       
+    }
     
     private func configureUI() {
         addSubViews()
