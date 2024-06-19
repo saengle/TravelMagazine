@@ -37,11 +37,13 @@ extension RestauranctMapViewController {
     // 1) 사용자에게 권한 요청을 하기 위해, ios위치 서비스 활성화 여부 체크
     func checkDeviceLocationAuthorization() {
         // 아래 메서드가 타입메서드 (Static func) -> class func 으로 보여줌
-        if CLLocationManager.locationServicesEnabled() {
-            // 현재 권한 상태 확인
-            print("야임마")
-            checkCurrentLocationAuthorization()
-        } else { // 위치서비스가 꺼져있는 상태. 이니 알려줘서 켜도록 유도해야함
+        
+        let myQueue = DispatchQueue(label:"myOwnQueue")
+        myQueue.async {
+          if CLLocationManager.locationServicesEnabled() {
+              self.checkCurrentLocationAuthorization()
+          } else { // 위치서비스가 꺼져있는 상태. 이니 알려줘서 켜도록 유도해야함
+          }
         }
     }
     // 2) 현재 사용자 위치 권한 상태 확인
