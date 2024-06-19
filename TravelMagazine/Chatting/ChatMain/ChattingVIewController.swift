@@ -37,7 +37,7 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let sb = UIStoryboard(name: "ChattingDetailView", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: ChattingDetailViewController.identifier) as! ChattingDetailViewController
-        
+        vc.chat = [chatList[indexPath.row]]
         navigationController?.pushViewController(vc, animated: true)
     }
 }

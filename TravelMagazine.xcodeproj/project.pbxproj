@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E1DB5042C230B6B00B2F6C5 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 8E1DB5032C230B6B00B2F6C5 /* .gitignore */; };
+		8E1DB5062C230B9100B2F6C5 /* APISecure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1DB5052C230B9100B2F6C5 /* APISecure.swift */; };
+		8E1DB5082C230BD500B2F6C5 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1DB5072C230BD500B2F6C5 /* APIManager.swift */; };
+		8E1DB50B2C230C0000B2F6C5 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 8E1DB50A2C230C0000B2F6C5 /* Alamofire */; };
+		8E1DB50D2C230C1D00B2F6C5 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1DB50C2C230C1D00B2F6C5 /* Weather.swift */; };
 		8E3FCAF02C08912C00E91E7C /* RestauranctMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E3FCAEF2C08912C00E91E7C /* RestauranctMap.storyboard */; };
 		8E3FCAF22C08914100E91E7C /* RestauranctMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3FCAF12C08914100E91E7C /* RestauranctMapViewController.swift */; };
 		8E3FCB002C08DEB500E91E7C /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 8E3FCAFF2C08DEB500E91E7C /* Kingfisher */; };
@@ -16,6 +21,8 @@
 		8E3FCB372C0E01D200E91E7C /* ChattingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3FCB362C0E01D200E91E7C /* ChattingDetailViewController.swift */; };
 		8E3FCB3C2C0E025600E91E7C /* ChatMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3FCB3A2C0E025600E91E7C /* ChatMainTableViewCell.swift */; };
 		8E3FCB3D2C0E025600E91E7C /* ChatMainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E3FCB3B2C0E025600E91E7C /* ChatMainTableViewCell.xib */; };
+		8E3FCB402C0E378D00E91E7C /* ChatDetailUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3FCB3E2C0E378D00E91E7C /* ChatDetailUserTableViewCell.swift */; };
+		8E3FCB412C0E378D00E91E7C /* ChatDetailUserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E3FCB3F2C0E378D00E91E7C /* ChatDetailUserTableViewCell.xib */; };
 		8E5D28BE2C04C37A005231A0 /* TravleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5D28BC2C04C37A005231A0 /* TravleTableViewCell.swift */; };
 		8E5D28BF2C04C37A005231A0 /* TravleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E5D28BD2C04C37A005231A0 /* TravleTableViewCell.xib */; };
 		8E5D29022C07452F005231A0 /* CityInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5D29012C07452F005231A0 /* CityInfo.swift */; };
@@ -49,6 +56,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8E1DB5032C230B6B00B2F6C5 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		8E1DB5052C230B9100B2F6C5 /* APISecure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APISecure.swift; sourceTree = "<group>"; };
+		8E1DB5072C230BD500B2F6C5 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		8E1DB50C2C230C1D00B2F6C5 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		8E3FCAEF2C08912C00E91E7C /* RestauranctMap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RestauranctMap.storyboard; sourceTree = "<group>"; };
 		8E3FCAF12C08914100E91E7C /* RestauranctMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestauranctMapViewController.swift; sourceTree = "<group>"; };
 		8E3FCB2F2C0DFE5A00E91E7C /* ChattingData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChattingData.swift; sourceTree = "<group>"; };
@@ -57,6 +68,8 @@
 		8E3FCB362C0E01D200E91E7C /* ChattingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingDetailViewController.swift; sourceTree = "<group>"; };
 		8E3FCB3A2C0E025600E91E7C /* ChatMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMainTableViewCell.swift; sourceTree = "<group>"; };
 		8E3FCB3B2C0E025600E91E7C /* ChatMainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatMainTableViewCell.xib; sourceTree = "<group>"; };
+		8E3FCB3E2C0E378D00E91E7C /* ChatDetailUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailUserTableViewCell.swift; sourceTree = "<group>"; };
+		8E3FCB3F2C0E378D00E91E7C /* ChatDetailUserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatDetailUserTableViewCell.xib; sourceTree = "<group>"; };
 		8E5D28BC2C04C37A005231A0 /* TravleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravleTableViewCell.swift; sourceTree = "<group>"; };
 		8E5D28BD2C04C37A005231A0 /* TravleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TravleTableViewCell.xib; sourceTree = "<group>"; };
 		8E5D29012C07452F005231A0 /* CityInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityInfo.swift; sourceTree = "<group>"; };
@@ -97,6 +110,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E3FCB002C08DEB500E91E7C /* Kingfisher in Frameworks */,
+				8E1DB50B2C230C0000B2F6C5 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +124,7 @@
 				8ECD543A2C04586500724455 /* TravelModel.swift */,
 				8ED947DD2C010E4300AD84A3 /* MagazineModel.swift */,
 				8E5D29032C074556005231A0 /* CityModel.swift */,
+				8E1DB50C2C230C1D00B2F6C5 /* Weather.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -138,6 +153,8 @@
 			children = (
 				8E3FCB362C0E01D200E91E7C /* ChattingDetailViewController.swift */,
 				8E3FCB342C0DFFED00E91E7C /* ChattingDetailView.storyboard */,
+				8E3FCB3E2C0E378D00E91E7C /* ChatDetailUserTableViewCell.swift */,
+				8E3FCB3F2C0E378D00E91E7C /* ChatDetailUserTableViewCell.xib */,
 			);
 			path = ChatDetail;
 			sourceTree = "<group>";
@@ -164,6 +181,7 @@
 		8E6CB7A92C010C9E004B4575 = {
 			isa = PBXGroup;
 			children = (
+				8E1DB5032C230B6B00B2F6C5 /* .gitignore */,
 				8E6CB7B32C010C9E004B4575 /* Products */,
 				8E6CB7B42C010C9E004B4575 /* TravelMagazine */,
 			);
@@ -180,6 +198,7 @@
 		8E6CB7B42C010C9E004B4575 /* TravelMagazine */ = {
 			isa = PBXGroup;
 			children = (
+				8E1DB5052C230B9100B2F6C5 /* APISecure.swift */,
 				8E5D29102C0770F9005231A0 /* City */,
 				8E5D290D2C076339005231A0 /* extension */,
 				8E6CB7B52C010C9E004B4575 /* AppDelegate.swift */,
@@ -195,6 +214,7 @@
 				8ECD543E2C048E5500724455 /* Magazine */,
 				8ECD543F2C048F0600724455 /* Restauranct */,
 				8ECD54442C048F3600724455 /* Travel. */,
+				8E1DB5072C230BD500B2F6C5 /* APIManager.swift */,
 			);
 			path = TravelMagazine;
 			sourceTree = "<group>";
@@ -263,6 +283,7 @@
 			name = TravelMagazine;
 			packageProductDependencies = (
 				8E3FCAFF2C08DEB500E91E7C /* Kingfisher */,
+				8E1DB50A2C230C0000B2F6C5 /* Alamofire */,
 			);
 			productName = TravelMagazine;
 			productReference = 8E6CB7B22C010C9E004B4575 /* TravelMagazine.app */;
@@ -294,6 +315,7 @@
 			mainGroup = 8E6CB7A92C010C9E004B4575;
 			packageReferences = (
 				8E3FCAFE2C08DEB500E91E7C /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				8E1DB5092C230C0000B2F6C5 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 8E6CB7B32C010C9E004B4575 /* Products */;
 			projectDirPath = "";
@@ -318,7 +340,9 @@
 				8E6CB7C22C010CA0004B4575 /* Base in Resources */,
 				8E5D28BF2C04C37A005231A0 /* TravleTableViewCell.xib in Resources */,
 				8E6CB7BD2C010C9E004B4575 /* Base in Resources */,
+				8E3FCB412C0E378D00E91E7C /* ChatDetailUserTableViewCell.xib in Resources */,
 				8E3FCAF02C08912C00E91E7C /* RestauranctMap.storyboard in Resources */,
+				8E1DB5042C230B6B00B2F6C5 /* .gitignore in Resources */,
 				8E5D29082C07493F005231A0 /* TravelDetail.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,9 +361,13 @@
 				8ED947E22C02158E00AD84A3 /* MagazineControllerTableViewCell.swift in Sources */,
 				8ECD543B2C04586500724455 /* TravelModel.swift in Sources */,
 				8ECD543D2C048BDB00724455 /* TravelViewController.swift in Sources */,
+				8E1DB5062C230B9100B2F6C5 /* APISecure.swift in Sources */,
+				8E3FCB402C0E378D00E91E7C /* ChatDetailUserTableViewCell.swift in Sources */,
+				8E1DB50D2C230C1D00B2F6C5 /* Weather.swift in Sources */,
 				8EA9BF9D2C03555200D97438 /* RestaurantTableViewController.swift in Sources */,
 				8ED947DC2C010E1700AD84A3 /* MagazineInfo.swift in Sources */,
 				8E3FCAF22C08914100E91E7C /* RestauranctMapViewController.swift in Sources */,
+				8E1DB5082C230BD500B2F6C5 /* APIManager.swift in Sources */,
 				8E5D28BE2C04C37A005231A0 /* TravleTableViewCell.swift in Sources */,
 				8ED947E02C02105600AD84A3 /* MagazineViewController.swift in Sources */,
 				8E5D29062C074842005231A0 /* TravelDetailViewController.swift in Sources */,
@@ -591,6 +619,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		8E1DB5092C230C0000B2F6C5 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
 		8E3FCAFE2C08DEB500E91E7C /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher";
@@ -602,6 +638,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		8E1DB50A2C230C0000B2F6C5 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8E1DB5092C230C0000B2F6C5 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
 		8E3FCAFF2C08DEB500E91E7C /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8E3FCAFE2C08DEB500E91E7C /* XCRemoteSwiftPackageReference "Kingfisher" */;
