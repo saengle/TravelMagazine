@@ -4,7 +4,7 @@
 //
 //  Created by 쌩 on 5/30/24.
 //
-
+import CoreLocation
 import MapKit
 import UIKit
 
@@ -14,32 +14,104 @@ class RestauranctMapViewController: UIViewController{
     let mapView = MKMapView()
     var wholeAnnotations: [MKAnnotation] = []
     var annotations: [MKAnnotation] = []
-    // category ["한식", "경양식", "양식", "중식", "일식", "카페", "모두"]
+    
     var category = ["모두", "한식", "양식", "중식", "일식", "카페"]
-//    let buttonsCV: UICollectionView = {
-//        let view = UICollectionView()
-//       
-//        return view
-//    }()
+
+    let locationManager = CLLocationManager()
+    lazy var myLocation = CLLocationCoordinate2D()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .plain, target: self, action: #selector(navDrawerClicked))
+        navigationItem.rightBarButtonItems = [ UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .plain, target: self, action: #selector(navDrawerClicked)), UIBarButtonItem(image: UIImage(systemName: "location.fill"), style: .plain, target: self, action: #selector(myLocationButtonClicked))]
         navigationItem.title = "테스토"
         navigationController?.isNavigationBarHidden = false
         configureUI()
-        // 중심값(필수): 위, 경도 37.5177783, 126.8863443
-
-        
-//        addWholeAnotation()
-//        addAnnotations(keyWord: "한식")
-//        buttonsCV.delegate = self
-//        buttonsCV.dataSource = self
-    }
-  
     
+        locationManager.delegate = self
+        checkDeviceLocationAuthorization()
+    }
 }
+
+extension RestauranctMapViewController {
+    // 1) 사용자에게 권한 요청을 하기 위해, ios위치 서비스 활성화 여부 체크
+    func checkDeviceLocationAuthorization() {
+        // 아래 메서드가 타입메서드 (Static func) -> class func 으로 보여줌
+        if CLLocationManager.locationServicesEnabled() {
+            // 현재 권한 상태 확인
+            print("야임마")
+            checkCurrentLocationAuthorization()
+        } else { // 위치서비스가 꺼져있는 상태. 이니 알려줘서 켜도록 유도해야함
+        }
+    }
+    // 2) 현재 사용자 위치 권한 상태 확인
+    func checkCurrentLocationAuthorization() {
+        var status: CLAuthorizationStatus = locationManager.authorizationStatus
+        if #available(iOS 14.0, *) {
+            status = locationManager.authorizationStatus
+        } else {
+            status = CLLocationManager.authorizationStatus()
+        }
+        switch status {
+        case .notDetermined: // 정해져 있지 않음 -> 권한 설정버튼 띄워줌
+            //정확도
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            //권한 요청
+            locationManager.requestWhenInUseAuthorization()
+        case .denied: break // 권한 거절 누른 상탱 ios 설정창으로 이동하라고 알려 줄 수 밖에 없음.
+        case .authorizedWhenInUse: //위치 정보 알려달라고 로직 구성할 수 있음
+            // 위치정보 달라고 요청
+            locationManager.startUpdatingLocation()
+        default:
+            print(status)
+        }
+    }
+    // 매개변수 타입이 저런 이유는 coordinate 자체가 저런 타입입.
+    func setRegionAndAnnotation(center: CLLocationCoordinate2D) {
+        //맵뷰, 맵뷰에 어노테이션.
+        let region = MKCoordinateRegion(center: center, latitudinalMeters: 500, longitudinalMeters: 500)
+        mapView.setRegion(region, animated: true)
+    }
+    
+    @objc func myLocationButtonClicked() {
+        setRegionAndAnnotation(center: myLocation)
+    }
+}
+
+// MARK:   3. 위치관련 프로토콜 선언: CLLocationManagerDelegate
+extension RestauranctMapViewController: CLLocationManagerDelegate {
+
+    // MARK:  5. 사용자 위치를 성공적으로 가지고 온 경우
+    // 코드 구성에 따라 여러번 호출이 될 수도 있다.
+    // didUpdateLocations
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let coordinate = locations.last?.coordinate {
+            print(coordinate)
+            myLocation = coordinate
+            // 권한 허용시 본인 위치로 맵 이동
+            setRegionAndAnnotation(center: coordinate)
+        }
+        //startUpdatingLocation을 했으면 더이상 위치를 안받아도 되는 시점에서 stop을 해줘야만 함 ! 안하면 계~~~~~~~~~~속 하고있음
+//        locationManager.stopUpdatingLocation() // 필요한 시점에 사용하면 사용자 위치 업데이트를 그만둠.
+    }
+    // MARK:  6. 사용자 위치를 가지고 오지 못한경우
+    // didFailWithError
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
+        print(#function)
+    }
+    // MARK:  7. 사용자의 권한 상태가 변경된경우 (iOS14) + 인스턴스가 생성이 될 때도 호출이 된다.
+    // -> 뷰 디드 로드 등의 다른 시점들에서 굳이 호출할 필요가 없음 ! 인스턴스 생성되면 알아서 뜨니까. => 만약에 굳이 뷰 생성시 호출하면 이상하게 두번뜸 ;
+    // 사용자가 허용을 했었는데, 추후 직접 아이폰 설정에서 허용권한을 변경(거부)한 경우. or 한번허용 이여서 잘 쓰고 껐다 켰을때
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        print(#function, "iOS14+")
+        checkDeviceLocationAuthorization()
+    }
+    // ios14 부터 deprecate 됨
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        print(#function, "iOs14-")
+    }
+}
+
 
 extension RestauranctMapViewController: MKMapViewDelegate {
     
@@ -143,21 +215,13 @@ extension RestauranctMapViewController: MKMapViewDelegate {
         
         //4. 띄우기
         present(alert, animated: true)
+        
+        let center = CLLocationCoordinate2D(latitude: 37.5177783,
+                                            longitude: 126.8863443)
+        let region = MKCoordinateRegion(center: center,
+                                        latitudinalMeters: 750 ,
+                                        longitudinalMeters: 750)
+        mapView.setRegion(region, animated: true)
     }
 }
-//
-//extension RestauranctMapViewController: UICollectionViewDelegate, UICollectionViewDataSource{
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return 1
-//    }
-//    
-//
-//    
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        
-//        return UICollectionViewCell()
-//    }
-//    
-//    
-//    
-//}
+
