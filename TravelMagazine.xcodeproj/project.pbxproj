@@ -12,6 +12,8 @@
 		8E1DB5082C230BD500B2F6C5 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1DB5072C230BD500B2F6C5 /* APIManager.swift */; };
 		8E1DB50B2C230C0000B2F6C5 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 8E1DB50A2C230C0000B2F6C5 /* Alamofire */; };
 		8E1DB50D2C230C1D00B2F6C5 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1DB50C2C230C1D00B2F6C5 /* Weather.swift */; };
+		8E3112522C3D665700E1BB80 /* CityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3112512C3D665700E1BB80 /* CityViewModel.swift */; };
+		8E3112542C3D672700E1BB80 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3112532C3D672700E1BB80 /* Observable.swift */; };
 		8E3FCAF02C08912C00E91E7C /* RestauranctMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E3FCAEF2C08912C00E91E7C /* RestauranctMap.storyboard */; };
 		8E3FCAF22C08914100E91E7C /* RestauranctMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3FCAF12C08914100E91E7C /* RestauranctMapViewController.swift */; };
 		8E3FCB002C08DEB500E91E7C /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 8E3FCAFF2C08DEB500E91E7C /* Kingfisher */; };
@@ -60,6 +62,8 @@
 		8E1DB5052C230B9100B2F6C5 /* APISecure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APISecure.swift; sourceTree = "<group>"; };
 		8E1DB5072C230BD500B2F6C5 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		8E1DB50C2C230C1D00B2F6C5 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		8E3112512C3D665700E1BB80 /* CityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityViewModel.swift; sourceTree = "<group>"; };
+		8E3112532C3D672700E1BB80 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		8E3FCAEF2C08912C00E91E7C /* RestauranctMap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RestauranctMap.storyboard; sourceTree = "<group>"; };
 		8E3FCAF12C08914100E91E7C /* RestauranctMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestauranctMapViewController.swift; sourceTree = "<group>"; };
 		8E3FCB2F2C0DFE5A00E91E7C /* ChattingData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChattingData.swift; sourceTree = "<group>"; };
@@ -174,6 +178,7 @@
 				8ECD54382C04570200724455 /* CityViewController.swift */,
 				8E5D29112C077297005231A0 /* CityTableViewCell.swift */,
 				8E5D29122C077297005231A0 /* CityTableViewCell.xib */,
+				8E3112512C3D665700E1BB80 /* CityViewModel.swift */,
 			);
 			path = City;
 			sourceTree = "<group>";
@@ -215,6 +220,7 @@
 				8ECD543F2C048F0600724455 /* Restauranct */,
 				8ECD54442C048F3600724455 /* Travel. */,
 				8E1DB5072C230BD500B2F6C5 /* APIManager.swift */,
+				8E3112532C3D672700E1BB80 /* Observable.swift */,
 			);
 			path = TravelMagazine;
 			sourceTree = "<group>";
@@ -373,8 +379,10 @@
 				8E5D29062C074842005231A0 /* TravelDetailViewController.swift in Sources */,
 				8E3FCB3C2C0E025600E91E7C /* ChatMainTableViewCell.swift in Sources */,
 				8E3FCB332C0DFFAA00E91E7C /* ChattingVIewController.swift in Sources */,
+				8E3112522C3D665700E1BB80 /* CityViewModel.swift in Sources */,
 				8E5D290F2C076357005231A0 /* UIView+Extension.swift in Sources */,
 				8E5D29162C080223005231A0 /* UIViewController+Extension.swift in Sources */,
+				8E3112542C3D672700E1BB80 /* Observable.swift in Sources */,
 				8EBE0D602C03500800D83E34 /* Restaurant.swift in Sources */,
 				8E3FCB372C0E01D200E91E7C /* ChattingDetailViewController.swift in Sources */,
 				8ECD544A2C04906E00724455 /* AdTableViewCell.swift in Sources */,
