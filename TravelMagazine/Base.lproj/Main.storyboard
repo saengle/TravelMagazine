@@ -434,26 +434,17 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="pK3-r1-7JW">
-                                <rect key="frame" x="16" y="134" width="343" height="595"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GrN-Jm-FYJ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="GrN-Jm-FYJ" firstAttribute="trailing" secondItem="Z8S-Ca-zph" secondAttribute="trailing" constant="16" id="N0a-9v-puS"/>
-                            <constraint firstItem="GrN-Jm-FYJ" firstAttribute="trailing" secondItem="pK3-r1-7JW" secondAttribute="trailing" constant="16" id="UAs-eE-IYq"/>
-                            <constraint firstItem="GrN-Jm-FYJ" firstAttribute="bottom" secondItem="pK3-r1-7JW" secondAttribute="bottom" id="byx-nU-16y"/>
-                            <constraint firstItem="pK3-r1-7JW" firstAttribute="top" secondItem="Z8S-Ca-zph" secondAttribute="bottom" id="juh-fe-gyp"/>
-                            <constraint firstItem="pK3-r1-7JW" firstAttribute="leading" secondItem="GrN-Jm-FYJ" secondAttribute="leading" constant="16" id="nxI-c8-aEd"/>
                             <constraint firstItem="Z8S-Ca-zph" firstAttribute="top" secondItem="GrN-Jm-FYJ" secondAttribute="top" id="qB8-QC-sVB"/>
                             <constraint firstItem="Z8S-Ca-zph" firstAttribute="leading" secondItem="GrN-Jm-FYJ" secondAttribute="leading" constant="16" id="zsv-VG-fjq"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="mn1-0d-Zvh"/>
                     <connections>
-                        <outlet property="chatTableView" destination="pK3-r1-7JW" id="Rq2-ht-BOz"/>
                         <outlet property="chatTextField" destination="Z8S-Ca-zph" id="N7M-C7-9Vz"/>
                     </connections>
                 </viewController>
